@@ -1,7 +1,7 @@
 # project-catwalk
 
 <h1 align="center">
-  downshift 🏎
+  CatWalk 😺
   <br>
   <img src="https://raw.githubusercontent.com/downshift-js/downshift/master/other/public/logo/downshift.svg" alt="downshift logo" title="downshift logo" width="300">
   <br>
