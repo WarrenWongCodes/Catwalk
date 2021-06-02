@@ -3,7 +3,7 @@
 <h1 align="center">
   CatWalk 😺
   <br>
-  <img src="https://lh3.googleusercontent.com/proxy/g1ciW4XRv1YK2t4UfQtPJMcq5-GlSO_yeAWC8vwRnxb85qoBuBaiGEb9RnPUsv8WeTXndv2pXoWb1Ba2Xw_Kffh9bQviqYCEtahRa6fP" alt="downshift logo" title="downshift logo" width="300">
+  <img src="https://media.giphy.com/media/lJNoBCvQYp7nq/giphy.gif" alt="downshift logo" title="downshift logo" width="300">
   <br>
 </h1>
 <p align="center" style="font-size: 1.2rem;">Primitives to build simple, flexible, WAI-ARIA compliant React
