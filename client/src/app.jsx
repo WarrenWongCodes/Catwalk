@@ -1,14 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import KEYS from "/.env.js";
 import axios from "axios";
 
-console.log("API KEY", KEYS.API_KEY);
-console.log("Endpoint", KEYS.ENDPOINT);
-
 export default function App(props) {
-  const [id, setId] = useState(11003);
-  const [product, setProduct] = useState();
-  const [styles, setStyles] = useState();
+  //ID
+  const [id, setId] = useState(11002);
+  // Product
+  const [product, setProduct] = useState({});
+  const [styles, setStyles] = useState([]);
+  // Reviews
+  const [reviews, setReviews] = useState([]);
+  const [meta, setMeta] = useState({});
+  // Questions
+  const [qa, setQa] = useState([]);
+  // Answers
+  const [answers, setAnswers] = useState([]);
+  // Cart
+  const [cart, setCart] = useState([]);
+  //Interaction
+  const [interactions, setInteractions] = useState({
+    element: "",
+    widget: "",
+    time: new Date().toLocaleString(),
+  });
 
   const options = {
     baseURL: `${KEYS.ENDPOINT}`,
@@ -17,87 +31,104 @@ export default function App(props) {
     },
   };
 
-  // console.log("calling setId", id);
-
-  // Axios to get product infoprmation
-  useEffect(() => {
-    // GET request using axios inside useEffect React hook
+  // Get product from URL ID
+  const getProduct = () => {
     axios
       .get(`/products/${id}`, options)
       .then((res) => {
-        // console.log("calling setId", id);
         setProduct(res.data);
-        // console.log("Product after state", product);
-        // return res.data;
       })
       .catch((error) => {
         console.error(error);
-      })
-      .then((res) => {
-        axios
-          .get(`/products/${id}/styles`, options)
-          .then((res) => {
-            console.log("Styles Data", res);
-            setStyles(res.data.results);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
       });
+  };
 
+  // Get Styles from Product ID
+  const getStyles = () => {
+    axios
+      .get(`/products/${id}/styles`, options)
+      .then((res) => {
+        setStyles(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  //Get Reviews Results
+  const getReviews = () => {
+    axios
+      .get(`/reviews/?product_id=${id}`, options)
+      .then((res) => {
+        console.log("Styles Data", res);
+        setReviews(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // Get Reviews Meta Data
+  const getReviewsMeta = () => {
+    axios
+      .get(`/reviews/meta?product_id=${id}`, options)
+      .then((res) => {
+        setMeta(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // Get List of Questions
+  const getQa = () => {
+    axios
+      .get(`qa/questions?product_id=${id}`, options)
+      .then((res) => {
+        console.log("QA Data", res.data.results);
+        setQa(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // Get List of Answers
+  // Need Question ID
+  const getAnswers = () => {
+    axios
+      .get(`qa/questions/${qa.question_id}/answers`, options)
+      .then((res) => {
+        console.log("Answer Data", res);
+        setQa(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // Axios to get product information
+  useEffect(() => {
+    getProduct();
+    getStyles();
+    getReviewsMeta();
+    getReviews();
+    getQa();
+    getAnswers();
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
-  // axios(options)
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((err) => {
-  //     console.log("There was an error");
-  //   });
-  // console.log("Product Name", product.name);
   return (
     <main>
       <header>
-        <h1>Hello</h1>
+        <h1>{product.name}</h1>
       </header>
     </main>
   );
 }
-
-// export default class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { products: [] };
-//   }
-
-//   // Axios to get product infoprmation
-//   getProduct() {
-//     axios
-//       .get(`${KEYS.ENDPOINT}/products`, {
-//         headers: {
-//           Authorization: `Basic ${KEYS.API_KEY}`,
-//           count: "all",
-//         },
-//       })
-//       .then((data, err) => {
-//         console.log(data);
-//       });
-//   }
 
 //   // Axios to get Reviews
 
 //   // Axios to get Questions and Answers
 
 //   // Axios to get cart
-
-//   render() {
-//     return (
-//       <main>
-//         <header>
-//           <h1>Hello World</h1>
-//         </header>
-//       </main>
-//     );
-//   }
-// }
