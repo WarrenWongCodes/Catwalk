@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import KEYS from "/.env.js";
+import KEYS from "/config.js";
 import axios from "axios";
 
 export default function App(props) {
