@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import KEYS from "/.env.js";
+import KEYS from "../../config.js";
 import axios from "axios";
 
 export default function App(props) {
@@ -13,8 +13,6 @@ export default function App(props) {
   const [meta, setMeta] = useState({});
   // Questions
   const [qa, setQa] = useState([]);
-  // Answers
-  const [answers, setAnswers] = useState([]);
   // Cart
   const [cart, setCart] = useState([]);
   //Interaction
@@ -37,6 +35,7 @@ export default function App(props) {
       .get(`/products/${id}`, options)
       .then((res) => {
         setProduct(res.data);
+        console.log("product", product);
       })
       .catch((error) => {
         console.error(error);
@@ -85,22 +84,9 @@ export default function App(props) {
     axios
       .get(`qa/questions?product_id=${id}`, options)
       .then((res) => {
-        console.log("QA Data", res.data.results);
+        console.log("QA after set", res.data.results);
         setQa(res.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  // Get List of Answers
-  // Need Question ID
-  const getAnswers = () => {
-    axios
-      .get(`qa/questions/${qa.question_id}/answers`, options)
-      .then((res) => {
-        console.log("Answer Data", res);
-        setQa(res.data.results);
+        return res;
       })
       .catch((error) => {
         console.error(error);
@@ -114,7 +100,6 @@ export default function App(props) {
     getReviewsMeta();
     getReviews();
     getQa();
-    getAnswers();
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
