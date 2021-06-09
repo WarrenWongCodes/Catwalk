@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import KEYS from "/config.js";
+import KEYS from "../../config.js";
 import axios from "axios";
 
 export default function App(props) {
@@ -60,7 +60,7 @@ export default function App(props) {
     axios
       .get(`/reviews/?product_id=${id}`, options)
       .then((res) => {
-        console.log("Styles Data", res);
+        // console.log("Styles Data", res);
         setReviews(res.data.results);
       })
       .catch((error) => {
@@ -85,7 +85,7 @@ export default function App(props) {
     axios
       .get(`qa/questions?product_id=${id}`, options)
       .then((res) => {
-        console.log("QA Data", res.data.results);
+        // console.log("QA Data", res.data.results);
         setQa(res.data.results);
       })
       .catch((error) => {
@@ -96,10 +96,11 @@ export default function App(props) {
   // Get List of Answers
   // Need Question ID
   const getAnswers = () => {
+    //You will need to map through questions
     axios
       .get(`qa/questions/${qa.question_id}/answers`, options)
       .then((res) => {
-        console.log("Answer Data", res);
+        // console.log("Answer Data", res);
         setQa(res.data.results);
       })
       .catch((error) => {
@@ -123,6 +124,7 @@ export default function App(props) {
       <header>
         <h1>{product.name}</h1>
       </header>
+      <body></body>
     </main>
   );
 }
