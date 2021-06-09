@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import KEYS from "/config.js";
 import axios from "axios";
+
+export const IdContext = React.createContext();
+export const ProductContext = React.createContext();
+export const StylesContext = React.createContext();
+export const ReviewsContext = React.createContext();
+export const MetaContext = React.createContext();
+export const QaContext = React.createContext();
+export const CartContext = React.createContext();
+export const InteractionsContext = React.createContext();
 
 export const Store = () => {
   const [id, setId] = useState(11002);

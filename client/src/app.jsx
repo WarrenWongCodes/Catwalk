@@ -1,5 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Store } from "./store.jsx";
+import React, { useEffect } from "react";
+
+import Overview from "./components/overview/Overview.jsx";
+// import Related from "./components/related/Related.jsx";
+// import Reviews from "./components/reviews/Reviews.jsx";
+// import QA from "./components/qa/QA.jsx"
+
+import {
+  Store,
+  IdContext,
+  ProductContext,
+  StylesContext,
+  ReviewsContext,
+  MetaContext,
+  QaContext,
+  CartContext,
+  InteractionsContext,
+} from "./store.jsx";
 
 export default function App(props) {
   const {
@@ -31,6 +47,13 @@ export default function App(props) {
       <header>
         <h1>{product.name}</h1>
       </header>
+      <div>
+        <ProductContext.Provider value={product}>
+          <StylesContext.Provider value={styles}>
+            <Overview />
+          </StylesContext.Provider>
+        </ProductContext.Provider>
+      </div>
     </main>
   );
 }
