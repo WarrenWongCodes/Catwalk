@@ -59,7 +59,7 @@ export const Store = () => {
     axios
       .get(`/reviews/?product_id=${id}`, options)
       .then((res) => {
-        console.log("Styles Data", res);
+        console.log("Styles Data", res.data.results);
         setReviews(res.data.results);
       })
       .catch((error) => {

@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
+import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
 // import Related from "./components/related/Related.jsx";
-// import Reviews from "./components/reviews/Reviews.jsx";
+// import StarRating from "./components/reviews/components/StarRatings.jsx";
 // import QA from "./components/qa/QA.jsx"
+
+// import './App.css'
 
 import {
   Store,
@@ -51,6 +54,9 @@ export default function App(props) {
         <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
+            <ReviewsContext.Provider value={reviews}>
+            <ReviewsList />
+            </ReviewsContext.Provider>
           </StylesContext.Provider>
         </ProductContext.Provider>
       </div>

@@ -18,6 +18,43 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(jpg|png|svg)$/,
+        include: /node_modules/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
+      },
+      {
+        test: /\.(less|config)/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              options: {},
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,
+        use: [{ loader: "file-loader" }],
+      },
+      {
+        // Preprocess your css files
+        // you can add additional loaders here (e.g. sass/less etc.)
+        test: /\.css$/,
+        include: /node_modules/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"],
   },
 };
