@@ -1,3 +1,11 @@
-// Build a cartousel which takes images url from state and showcase them
+import React from "react";
 
-// export this component
+export default function Search({ search }) {
+  return (
+    <input
+      type="text"
+      placeholder="Have a question? Search for answers…"
+      onChange={search}
+    ></input>
+  );
+}

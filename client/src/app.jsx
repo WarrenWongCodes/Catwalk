@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
-import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
-import StarRating from "./components/reviews/components/ReviewsList.jsx";
-import AveRatingDisp from './components/reviews/components/Averagerating.jsx'
-// import Related from "./components/related/Related.jsx";
-// import StarRating from "./components/reviews/components/StarRatings.jsx";
-// import QA from "./components/qa/QA.jsx"
+import Related from "./components/related/Related.jsx";
+// import Reviews from "./components/reviews/Reviews.jsx";
+import QA from "./components/qa/QA.jsx";
 
 // import './App.css'
 
@@ -15,6 +12,7 @@ import {
   IdContext,
   ProductContext,
   StylesContext,
+  RelatedContext,
   ReviewsContext,
   MetaContext,
   QaContext,
@@ -27,6 +25,7 @@ export default function App(props) {
     id,
     product,
     styles,
+    related,
     reviews,
     meta,
     qa,
@@ -34,6 +33,7 @@ export default function App(props) {
     interactions,
     getProduct,
     getStyles,
+    getRelated,
     getReviews,
     getReviewsMeta,
     getQa,
@@ -42,6 +42,7 @@ export default function App(props) {
   useEffect(() => {
     getProduct();
     getStyles();
+    getRelated();
     getReviewsMeta();
     getReviews();
     getQa();
@@ -61,6 +62,12 @@ export default function App(props) {
             </ReviewsContext.Provider>
           </StylesContext.Provider>
         </ProductContext.Provider>
+        <RelatedContext.Provider value={related}>
+          <Related />
+        </RelatedContext.Provider>
+        <QaContext.Provider value={qa}>
+          <QA />
+        </QaContext.Provider>
       </div>
     </main>
   );
