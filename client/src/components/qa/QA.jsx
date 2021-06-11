@@ -1,9 +1,19 @@
-// This is what will be called in parent app.jsx
-// import carousel.jsx
+import React, { useContext, useState } from "react";
+import Search from "./components/Search.jsx";
+import { QaContext } from "../../store.jsx";
 
-// Render and put together all child components
+export default function QA() {
+  const [query, setQuery] = useState("");
+  const qa = useContext(QaContext);
 
-// return (
-// <carousel />
-// <another component/>
-//)
+  const searchChangeHandler = (e) => {
+    setQuery(e.target.value);
+  };
+
+  return (
+    <>
+      <h4>{"Questions & Answers"}</h4>
+      <Search search={searchChangeHandler} />
+    </>
+  );
+}
