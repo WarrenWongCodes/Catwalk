@@ -34,8 +34,6 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        // Preprocess your css files
-        // you can add additional loaders here (e.g. sass/less etc.)
         test: /\.css$/,
         include: /node_modules/,
         use: ["style-loader", "css-loader"],
@@ -57,8 +55,6 @@ module.exports = {
         test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,
         use: [{ loader: "file-loader" }],
       },
-
-
     ],
   },
   resolve: {
