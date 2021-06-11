@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Overview from "./components/overview/Overview.jsx";
 import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
 import StarRating from "./components/reviews/components/ReviewsList.jsx";
+import AveRatingDisp from './components/reviews/components/Averagerating.jsx'
 // import Related from "./components/related/Related.jsx";
 // import StarRating from "./components/reviews/components/StarRatings.jsx";
 // import QA from "./components/qa/QA.jsx"
@@ -56,7 +57,7 @@ export default function App(props) {
           <StylesContext.Provider value={styles}>
             <Overview />
             <ReviewsContext.Provider value={reviews}>
-            <ReviewsList />
+              <ReviewsList />
             </ReviewsContext.Provider>
           </StylesContext.Provider>
         </ProductContext.Provider>
