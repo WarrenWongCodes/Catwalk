@@ -5,6 +5,7 @@ import axios from "axios";
 export const IdContext = React.createContext();
 export const ProductContext = React.createContext();
 export const StylesContext = React.createContext();
+export const RelatedContext = React.createContext();
 export const ReviewsContext = React.createContext();
 export const MetaContext = React.createContext();
 export const QaContext = React.createContext();
@@ -14,6 +15,7 @@ export const InteractionsContext = React.createContext();
 export const Store = () => {
   const [id, setId] = useState(11002);
   const [product, setProduct] = useState({});
+  const [related, setRelated] = useState([]);
   const [styles, setStyles] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [meta, setMeta] = useState({});
@@ -37,7 +39,7 @@ export const Store = () => {
       .get(`/products/${id}`, options)
       .then((res) => {
         setProduct(res.data);
-        console.log("product", product);
+        // console.log("product", product);
       })
       .catch((error) => {
         console.error(error);
@@ -55,11 +57,29 @@ export const Store = () => {
       });
   };
 
+  const getRelated = () => {
+    axios
+      .get(`/products/${id}/related`, options)
+      .then((res) => {
+        // console.log("Response from related", res);
+        axios
+          .all(res.data.map((id) => axios.get(`/products/${id}`, options)))
+          .then(
+            axios.spread(function (...res) {
+              setRelated(res);
+            })
+          );
+      })
+      .catch((error) => {
+        console.error("Error getting Related Products ID: ", error);
+      });
+  };
+
   const getReviews = () => {
     axios
       .get(`/reviews/?product_id=${id}`, options)
       .then((res) => {
-        console.log("Styles Data", res);
+        // console.log("Styles Data", res);
         setReviews(res.data.results);
       })
       .catch((error) => {
@@ -82,7 +102,7 @@ export const Store = () => {
     axios
       .get(`qa/questions?product_id=${id}`, options)
       .then((res) => {
-        console.log("QA after set", res.data.results);
+        // console.log("QA after set", res.data.results);
         setQa(res.data.results);
         return res;
       })
@@ -94,6 +114,7 @@ export const Store = () => {
     id,
     product,
     styles,
+    related,
     reviews,
     meta,
     qa,
@@ -101,6 +122,7 @@ export const Store = () => {
     interactions,
     getProduct,
     getStyles,
+    getRelated,
     getReviews,
     getReviewsMeta,
     getQa,
