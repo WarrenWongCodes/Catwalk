@@ -1,11 +1,13 @@
 import React from 'react';
+import { Container, Rating } from 'semantic-ui-react';
 
+const RatingExampleStar = () => (
+  <Container >
+    <Rating  icon='star' defaultRating={0.5} maxRating={5} />
 
-const StarRating = () => {
-  return (
-    <div className="star-rating" data-rating="3">Stars</div>
-  )
-};
+  </Container>
 
-export default StarRating;
+)
+
+export default RatingExampleStar;
 

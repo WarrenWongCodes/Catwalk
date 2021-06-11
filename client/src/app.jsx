@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
 import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
+import StarRating from "./components/reviews/components/ReviewsList.jsx";
 // import Related from "./components/related/Related.jsx";
 // import StarRating from "./components/reviews/components/StarRatings.jsx";
 // import QA from "./components/qa/QA.jsx"

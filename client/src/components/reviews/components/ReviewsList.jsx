@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
 import { Container, Divider, Comment } from "semantic-ui-react";
+import RatingExampleStar from './StarRatings.jsx';
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);
@@ -13,9 +14,10 @@ const ReviewsList = () => {
       return (
         <Container>
           <Divider />
+          <RatingExampleStar />
           <div key={review_id}>
             <Container textAlign="right" style={{ color: "grey" }}>
-              {reviewer_name} {date}
+              {reviewer_name} {new Date(date).toDateString()}
             </Container>
             <Comment as="h4">{summary}</Comment>
             <p key={review_id}>{body}</p>
@@ -28,6 +30,7 @@ const ReviewsList = () => {
   return (
     <div>
       <Container textAlign="left">
+        {/* <RatingExampleStar /> */}
         <p>Reviews</p>
         <Divider />
         <div>{reviews}</div>
