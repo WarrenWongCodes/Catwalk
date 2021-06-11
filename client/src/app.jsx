@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
-// import Related from "./components/related/Related.jsx";
+import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
 import QA from "./components/qa/QA.jsx";
 
@@ -10,6 +10,7 @@ import {
   IdContext,
   ProductContext,
   StylesContext,
+  RelatedContext,
   ReviewsContext,
   MetaContext,
   QaContext,
@@ -22,6 +23,7 @@ export default function App(props) {
     id,
     product,
     styles,
+    related,
     reviews,
     meta,
     qa,
@@ -29,6 +31,7 @@ export default function App(props) {
     interactions,
     getProduct,
     getStyles,
+    getRelated,
     getReviews,
     getReviewsMeta,
     getQa,
@@ -37,6 +40,7 @@ export default function App(props) {
   useEffect(() => {
     getProduct();
     getStyles();
+    getRelated();
     getReviewsMeta();
     getReviews();
     getQa();
@@ -53,6 +57,9 @@ export default function App(props) {
             <Overview />
           </StylesContext.Provider>
         </ProductContext.Provider>
+        <RelatedContext.Provider value={related}>
+          <Related />
+        </RelatedContext.Provider>
         <QaContext.Provider value={qa}>
           <QA />
         </QaContext.Provider>
