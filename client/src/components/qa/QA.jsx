@@ -1,9 +1,13 @@
-// This is what will be called in parent app.jsx
-// import carousel.jsx
+import React, { useContext } from "react";
+import Search from "./components/Search.jsx";
+import { QaContext } from "../../store.jsx";
 
-// Render and put together all child components
-
-// return (
-// <carousel />
-// <another component/>
-//)
+export default function QA() {
+  const qa = useContext(QaContext);
+  return (
+    <>
+      <h4>{"Questions & Answers"}</h4>
+      <Search />
+    </>
+  );
+}

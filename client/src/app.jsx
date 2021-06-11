@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Overview from "./components/overview/Overview.jsx";
 // import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
-// import QA from "./components/qa/QA.jsx"
+import QA from "./components/qa/QA.jsx";
 
 import {
   Store,
@@ -53,6 +53,9 @@ export default function App(props) {
             <Overview />
           </StylesContext.Provider>
         </ProductContext.Provider>
+        <QaContext.Provider value={qa}>
+          <QA />
+        </QaContext.Provider>
       </div>
     </main>
   );

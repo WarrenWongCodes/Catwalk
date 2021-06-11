@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default () => {
+export default function Search() {
   const [query, setQuery] = useState("");
   // filter qa data based off query
   // save the query string in local state, pass the query to the view
@@ -11,4 +11,4 @@ export default () => {
       onChange={(e) => setQuery(e.target.value)}
     ></input>
   );
-};
+}
