@@ -11,4 +11,5 @@ dist/*
 !dist/index.html
 node_modules/
 *.log
+
 config.js
