@@ -5,6 +5,8 @@ import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
 import QA from "./components/qa/QA.jsx";
 
+// import './App.css'
+
 import {
   Store,
   IdContext,
@@ -55,6 +57,9 @@ export default function App(props) {
         <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
+            <ReviewsContext.Provider value={reviews}>
+              <ReviewsList />
+            </ReviewsContext.Provider>
           </StylesContext.Provider>
         </ProductContext.Provider>
         <RelatedContext.Provider value={related}>
