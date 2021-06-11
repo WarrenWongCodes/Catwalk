@@ -4,6 +4,7 @@ import Overview from "./components/overview/Overview.jsx";
 import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
 import QA from "./components/qa/QA.jsx";
+import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
 
 // import './App.css'
 
@@ -13,6 +14,7 @@ import {
   ProductContext,
   StylesContext,
   RelatedContext,
+  RelatedImagesContext,
   ReviewsContext,
   MetaContext,
   QaContext,
@@ -26,6 +28,7 @@ export default function App(props) {
     product,
     styles,
     related,
+    relatedImages,
     reviews,
     meta,
     qa,
@@ -34,6 +37,7 @@ export default function App(props) {
     getProduct,
     getStyles,
     getRelated,
+    getRelatedImages,
     getReviews,
     getReviewsMeta,
     getQa,
@@ -43,6 +47,7 @@ export default function App(props) {
     getProduct();
     getStyles();
     getRelated();
+    getRelatedImages();
     getReviewsMeta();
     getReviews();
     getQa();
@@ -54,20 +59,24 @@ export default function App(props) {
         <h1>{product.name}</h1>
       </header>
       <div>
-        <ProductContext.Provider value={product}>
+        {/* <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
             <ReviewsContext.Provider value={reviews}>
               <ReviewsList />
             </ReviewsContext.Provider>
           </StylesContext.Provider>
-        </ProductContext.Provider>
+        </ProductContext.Provider> */}
         <RelatedContext.Provider value={related}>
-          <Related />
+          <StylesContext.Provider value={styles}>
+            <RelatedImagesContext.Provider value={relatedImages}>
+              <Related />
+            </RelatedImagesContext.Provider>
+          </StylesContext.Provider>
         </RelatedContext.Provider>
-        <QaContext.Provider value={qa}>
+        {/* <QaContext.Provider value={qa}>
           <QA />
-        </QaContext.Provider>
+        </QaContext.Provider> */}
       </div>
     </main>
   );
