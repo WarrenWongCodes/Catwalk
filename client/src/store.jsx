@@ -77,7 +77,6 @@ export const Store = () => {
   };
 
   const getRelatedImages = () => {
-    console.log(related);
     axios
       .all(
         related.map((product) => {

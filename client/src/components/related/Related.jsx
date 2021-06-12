@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Grid } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import {
   RelatedContext,
   StylesContext,
@@ -17,11 +17,11 @@ export default function Related() {
       <div>
         <h4>Related Products</h4>
         <p>Related Product Names:</p>
-        <Grid>
+        <Card.Group>
           {related.map((item) => {
             return <CardComponent key={item.data.id} product={item.data} />;
           })}
-        </Grid>
+        </Card.Group>
       </div>
     </>
   );

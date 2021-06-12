@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
 import Related from "./components/related/Related.jsx";
