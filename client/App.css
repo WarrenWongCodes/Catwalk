@@ -9,7 +9,47 @@ input[type="radio"] {
   display: none;
 }
 
+:root {
+  --star-size: 15px;
+  --star-color: white;
+  --star-background: #000;
+  --star-border: solid 1px;
+}
+
 .star {
-  cursor: pointer;
-  transition: color 200ms;
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+
+.star:before {
+  content: "★★★★★";
+  letter-spacing: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.starContainer {
+  /* background: #eee; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.disp {
+  font-size: xx-large;
+}
+
+.ratingsHeadline {
+  color: rgba(22, 22, 22, 0.466);
 }
