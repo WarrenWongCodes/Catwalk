@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { MetaContext } from '../../../store.jsx';
 import { Rating, Container } from 'semantic-ui-react';
 
-
-
 const AveRatingDisp = () => {
 
   const meta = useContext(MetaContext);
