@@ -6,7 +6,6 @@ export const IdContext = React.createContext();
 export const ProductContext = React.createContext();
 export const StylesContext = React.createContext();
 export const RelatedContext = React.createContext();
-export const RelatedImagesContext = React.createContext();
 export const ReviewsContext = React.createContext();
 export const MetaContext = React.createContext();
 export const QaContext = React.createContext();
@@ -14,10 +13,9 @@ export const CartContext = React.createContext();
 export const InteractionsContext = React.createContext();
 
 export const Store = () => {
-  const [id, setId] = useState(11003);
+  const [id, setId] = useState(11012);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
-  const [relatedImages, setRelatedImages] = useState("");
   const [styles, setStyles] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [meta, setMeta] = useState({});
@@ -68,28 +66,10 @@ export const Store = () => {
           .then(
             axios.spread(function (...res) {
               setRelated(res);
+              return res;
             })
           );
       })
-      .catch((error) => {
-        console.error("Error getting Related Products ID: ", error);
-      });
-  };
-
-  const getRelatedImages = () => {
-    axios
-      .all(
-        related.map((product) => {
-          axios.get(`/products/${product.id}/styles`, options);
-          console.log("Product", product);
-        })
-      )
-      .then(
-        axios.spread(function (...res) {
-          console.log("Response from related", res);
-          setRelatedImages(res);
-        })
-      )
       .catch((error) => {
         console.error("Error getting Related Products ID: ", error);
       });
@@ -135,7 +115,6 @@ export const Store = () => {
     product,
     styles,
     related,
-    relatedImages,
     reviews,
     meta,
     qa,
@@ -144,7 +123,6 @@ export const Store = () => {
     getProduct,
     getStyles,
     getRelated,
-    getRelatedImages,
     getReviews,
     getReviewsMeta,
     getQa,

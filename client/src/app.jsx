@@ -14,7 +14,6 @@ import {
   ProductContext,
   StylesContext,
   RelatedContext,
-  RelatedImagesContext,
   ReviewsContext,
   MetaContext,
   QaContext,
@@ -28,7 +27,6 @@ export default function App(props) {
     product,
     styles,
     related,
-    relatedImages,
     reviews,
     meta,
     qa,
@@ -37,7 +35,6 @@ export default function App(props) {
     getProduct,
     getStyles,
     getRelated,
-    getRelatedImages,
     getReviews,
     getReviewsMeta,
     getQa,
@@ -47,7 +44,6 @@ export default function App(props) {
     getProduct();
     getStyles();
     getRelated();
-    getRelatedImages();
     getReviewsMeta();
     getReviews();
     getQa();
@@ -68,11 +64,7 @@ export default function App(props) {
           </StylesContext.Provider>
         </ProductContext.Provider> */}
         <RelatedContext.Provider value={related}>
-          <StylesContext.Provider value={styles}>
-            <RelatedImagesContext.Provider value={relatedImages}>
-              <Related />
-            </RelatedImagesContext.Provider>
-          </StylesContext.Provider>
+          <Related />
         </RelatedContext.Provider>
         {/* <QaContext.Provider value={qa}>
           <QA />
