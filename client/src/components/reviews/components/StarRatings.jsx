@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Rating } from 'semantic-ui-react';
 
-const RatingExampleStar = () => {
+const StarRating = () => {
 
   let rating = {
-    "--rating": 3.5,
+    "--rating": 3.4,
   };
 
   return (
@@ -16,4 +16,4 @@ const RatingExampleStar = () => {
   )
 };
 
-export default RatingExampleStar;
+export default StarRating;
