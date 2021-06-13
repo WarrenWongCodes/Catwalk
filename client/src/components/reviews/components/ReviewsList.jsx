@@ -6,9 +6,6 @@ import StarRating from './StarRatings.jsx';
 const ReviewsList = () => {
   const product = useContext(ProductContext);
   const review = useContext(ReviewsContext);
-  // const styles = useContext(StylesContext);
-  // console.log("ReviewsList Context from component", product.id, review[0]);
-
 
   const reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {

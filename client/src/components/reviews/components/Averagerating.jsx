@@ -3,6 +3,7 @@ import { MetaContext } from '../../../store.jsx';
 import { Rating, Container } from 'semantic-ui-react';
 import StarRating from './StarRatings';
 import RatingBars from './RatingBars';
+import Recommend from './Recommend';
 
 const AveRatingDisp = () => {
 
@@ -29,7 +30,9 @@ const AveRatingDisp = () => {
       <div className='disp'>
         <Ave />
         <StarRating />
-
+      </div>
+      <div>
+        <Recommend />
       </div>
       <RatingBars />
     </div>
