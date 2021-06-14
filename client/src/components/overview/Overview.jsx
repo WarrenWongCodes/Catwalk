@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
 import { ProductContext, StylesContext } from "../../store.jsx";
+import Gallery from "./components/Gallery/Gallery";
+import Information from "./components/Information/Information";
+import styles from "./overview.module.css";
+const { overview } = styles;
 
 export default function Overview() {
   const product = useContext(ProductContext);
@@ -8,8 +12,9 @@ export default function Overview() {
   console.log("Overview Context from component", product.name);
 
   return (
-    <div>
-      <p>Test</p>
+    <div className={`container ${overview}`}>
+      <Gallery />
+      <Information />
     </div>
   );
 }

@@ -5,8 +5,10 @@ import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
 import ReviewsList from "./components/reviews/components/ReviewsList";
 import QA from "./components/qa/QA.jsx";
+import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
+import Navbar from "./components/common/Navbar/Navbar.jsx";
 
-// import './App.css'
+// import "./App.css";
 
 import {
   Store,
@@ -51,10 +53,8 @@ export default function App(props) {
 
   return (
     <main>
-      <header>
-        <h1>{product.name}</h1>
-      </header>
       <div>
+        <Navbar />
         <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
