@@ -51,27 +51,24 @@ export default function App(props) {
   }, []);
 
   return (
-    // <main>
-    //   <header>
-    //     <h1>{product.name}</h1>
-    //   </header>
-    <div>
-      <Navbar />
-      <ProductContext.Provider value={product}>
-        <StylesContext.Provider value={styles}>
-          <Overview />
-          {/* <ReviewsContext.Provider value={reviews}>
+    <main>
+      <div>
+        <Navbar />
+        <ProductContext.Provider value={product}>
+          <StylesContext.Provider value={styles}>
+            <Overview />
+            <ReviewsContext.Provider value={reviews}>
               <ReviewsList />
-            </ReviewsContext.Provider> */}
-        </StylesContext.Provider>
-      </ProductContext.Provider>
-      {/* <RelatedContext.Provider value={related}>
+            </ReviewsContext.Provider>
+          </StylesContext.Provider>
+        </ProductContext.Provider>
+        <RelatedContext.Provider value={related}>
           <Related />
         </RelatedContext.Provider>
         <QaContext.Provider value={qa}>
           <QA />
-        </QaContext.Provider> */}
-    </div>
-    // </main>
+        </QaContext.Provider>
+      </div>
+    </main>
   );
 }
