@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Rating } from 'semantic-ui-react';
+import { MetaContext } from '../../../store.jsx';
 
-const StarRating = () => {
 
+
+
+const StarRating = (props) => {
+  const meta = useContext(MetaContext);
+  const ratings = meta.ratings;
+
+  // console.log('meta: ', ratings)
+  // console.log('ratingsObj: ', ratingsObj);
+  // console.log('starProps: ', props)
   let rating = {
-    "--rating": 3.4,
+    "--rating": props.rating,
   };
 
+  // console.log('rating: ', rating['--rating'])
   return (
     <div className='starContainer'>
       <div className='star' style={{...rating}}>
@@ -17,3 +27,4 @@ const StarRating = () => {
 };
 
 export default StarRating;
+

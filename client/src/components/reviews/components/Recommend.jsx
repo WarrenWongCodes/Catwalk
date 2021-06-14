@@ -14,6 +14,8 @@ const Recommend = () => {
     percentageRecommended = positive;
   }
 
+  console.log('results: ', results);
+
   return (
     <>
       <div>{percentageRecommended}% of reviews reccomend this product</div>

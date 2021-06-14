@@ -12,7 +12,7 @@ const ReviewsList = () => {
       return (
         <Container>
           <Divider />
-          <StarRating />
+          <StarRating rating={rating}/>
           <div key={review_id}>
             <Container textAlign="right" style={{ color: "grey" }}>
               {reviewer_name} {new Date(date).toDateString()}

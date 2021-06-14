@@ -4,37 +4,47 @@ import { Rating, Container } from 'semantic-ui-react';
 import StarRating from './StarRatings';
 import RatingBars from './RatingBars';
 import Recommend from './Recommend';
+import SizeSlider from './SizeSlider';
 
-const AveRatingDisp = () => {
+const AveRatingDisp = (props) => {
 
   const meta = useContext(MetaContext);
   const ratings = meta.ratings;
+  const [ave, setAve] = useState(0)
 
-  const Ave = () => {
+  const Ave = (props) => {
     const ratingsArr = [];
+    let totalRatings = 0;
     let display = 0;
     if (ratings !== undefined) {
       for (let key in ratings) {
         ratingsArr.push(parseInt(key) * parseInt(ratings[key]));
+        totalRatings += parseInt(ratings[key]);
       }
       display = ratingsArr.reduce((acc, rating) => {
-        return acc + rating / 5;
+        return acc + rating / totalRatings;
       }, 0);
     }
-    return display;
+    setAve(Math.ceil(display * 4) / 4);
+    return Math.ceil(display * 4) / 4;
   };
+
+  console.log('aveOutside: ', ave)
 
   return (
     <div>
       <h3 className='ratingsHeadline'>RATINGS & REVIEWS</h3>
       <div className='disp'>
         <Ave />
-        <StarRating />
+        <StarRating rating={ave}/>
       </div>
       <div>
         <Recommend />
       </div>
       <RatingBars />
+      <div>
+        <SizeSlider />
+        </div>
     </div>
   );
 };

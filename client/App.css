@@ -82,5 +82,41 @@ input[type="radio"] {
 .bar {
   width: 60%;
   height: 18px;
-  background-color: #584f4f;
+  background-color: rgb(21, 99, 21);
+}
+
+.sliderContainer {
+  display: flex;
+  margin-bottom: 20px;
+  height: 10px;
+}
+
+.slideBackground {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  /* color: white; */
+}
+
+.small {
+  flex: 33%;
+  width: 33%;
+  margin-right: 10px;
+  background-color: grey;
+  text-align: center;
+}
+
+.perfect {
+  flex: 33%;
+  width: 33%;
+  margin-right: 10px;
+  background-color: grey;
+  text-align: center;
+}
+
+.large {
+  flex: 33%;
+  width: 33%;
+  background-color: grey;
+  text-align: center;
 }
