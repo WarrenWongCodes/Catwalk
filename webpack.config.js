@@ -30,26 +30,20 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.css$/,
-        include: /node_modules/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(less|config)/,
         use: [
           "style-loader",
-          "css-loader",
           {
-            loader: "less-loader",
-            options: {
-              options: {},
-            },
+            loader: "css-loader",
+            // importLoaders: 1,
+            // modules: true,
           },
         ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+        exclude: /\.module\.css$/,
       },
       {
         test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,

@@ -1,20 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import { RelatedContext } from "../../store.jsx";
+import CardComponent from "../related/components/Card.jsx";
+import "./styles/style.css";
 
 export default function Related() {
   const related = useContext(RelatedContext);
-  // console.log(related[0]);
-
-  useEffect(() => {});
 
   return (
     <>
-      <h4>Related Products</h4>
-      <p>Related Product Names:</p>
       <div>
-        {related.map((item) => {
-          return <p>{item.data.name}</p>;
-        })}
+        <h4>Related Products</h4>
+        <p>Related Product Names:</p>
+        <div className="container">
+          {related.map((item, i) => {
+            return <CardComponent key={i} product={item.data} />;
+          })}
+        </div>
       </div>
     </>
   );

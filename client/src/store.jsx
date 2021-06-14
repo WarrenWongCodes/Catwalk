@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import KEYS from "/config.js";
+import KEYS from "../../config.js";
 import axios from "axios";
 
 export const IdContext = React.createContext();
@@ -13,7 +13,7 @@ export const CartContext = React.createContext();
 export const InteractionsContext = React.createContext();
 
 export const Store = () => {
-  const [id, setId] = useState(11003);
+  const [id, setId] = useState("11006" || window.location.pathname);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -61,12 +61,12 @@ export const Store = () => {
     axios
       .get(`/products/${id}/related`, options)
       .then((res) => {
-        // console.log("Response from related", res);
         axios
           .all(res.data.map((id) => axios.get(`/products/${id}`, options)))
           .then(
             axios.spread(function (...res) {
               setRelated(res);
+              return res;
             })
           );
       })

@@ -1,11 +1,18 @@
 import React from 'react';
-import { Container, Rating } from 'semantic-ui-react';
 
-const RatingExampleStar = () => (
-  <Container >
-    <Rating className="" icon='star' defaultRating={0.5} maxRating={5} />
-    {/* <div className='star-rating'>***************************</div> */}
-  </Container>
-);
+const StarRating = (props) => {
 
-export default RatingExampleStar;
+  let rating = {
+    "--rating": props.rating,
+  };
+
+  return (
+    <div className='starContainer'>
+      <div className='star' style={{...rating}}>
+      </div>
+    </div>
+  )
+};
+
+export default StarRating;
+

@@ -1,0 +1,22 @@
+body {
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  line-height: var(--m-line-height);
+  font-size: var(--m-font);
+}
+
+h1 {
+  font: var(--xl-font);
+  line-height: var(--xl-line-height);
+}
+
+h2 {
+  font: var(--l-font);
+  line-height: var(--l-line-height);
+}
+
+p {
+  font: var(--m-font);
+  line-height: var(--m-line-height);
+}
