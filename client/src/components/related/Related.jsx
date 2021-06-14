@@ -12,8 +12,8 @@ export default function Related() {
         <h4>Related Products</h4>
         <p>Related Product Names:</p>
         <div className="container">
-          {related.map((item) => {
-            return <CardComponent key={item.data.id} product={item.data} />;
+          {related.map((item, i) => {
+            return <CardComponent key={i} product={item.data} />;
           })}
         </div>
       </div>

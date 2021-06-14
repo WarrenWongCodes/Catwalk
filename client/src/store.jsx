@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import KEYS from "/config.js";
+import KEYS from "../../config.js";
 import axios from "axios";
 
 export const IdContext = React.createContext();

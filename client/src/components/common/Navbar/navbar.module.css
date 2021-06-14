@@ -1,0 +1,20 @@
+.wrapper {
+  position: fixed;
+  width: 100%;
+  background-color: var(--border-color);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  font: var(--l-font);
+}
+
+.icon {
+  font-size: 22px;
+}
