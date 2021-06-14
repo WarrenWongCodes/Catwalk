@@ -10,7 +10,7 @@ const ReviewsList = () => {
   const reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
-        <Container>
+        <Container key={review_id} >
           <Divider />
           <StarRating rating={rating}/>
           <div key={review_id}>

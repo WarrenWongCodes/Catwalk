@@ -88,12 +88,12 @@ input[type="radio"] {
 .sliderContainer {
   display: flex;
   margin-bottom: 20px;
-  height: 10px;
+  height: 7px;
 }
 
 .slideBackground {
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: white;
   text-align: center;
   /* color: white; */
 }
@@ -119,4 +119,8 @@ input[type="radio"] {
   width: 33%;
   background-color: grey;
   text-align: center;
+}
+
+.spacer {
+  margin: 10px 0 10px 0;
 }

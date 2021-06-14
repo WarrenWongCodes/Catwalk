@@ -5,7 +5,6 @@ import Related from "./components/related/Related.jsx";
 import Reviews from "./components/reviews/Reviews.jsx";
 import QA from "./components/qa/QA.jsx";
 
-// import './App.css'
 
 import {
   Store,
