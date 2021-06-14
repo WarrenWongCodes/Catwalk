@@ -13,3 +13,4 @@ node_modules/
 *.log
 
 config.js
+/public/bundle.js
