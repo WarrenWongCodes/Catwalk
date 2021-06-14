@@ -3,7 +3,6 @@ import React, { useEffect, useMemo } from "react";
 import Overview from "./components/overview/Overview.jsx";
 import Related from "./components/related/Related.jsx";
 // import Reviews from "./components/reviews/Reviews.jsx";
-// import ReviewsList from "./components/reviews/components/ReviewsList";
 import QA from "./components/qa/QA.jsx";
 import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
 
