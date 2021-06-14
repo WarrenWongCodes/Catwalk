@@ -13,7 +13,7 @@ export const CartContext = React.createContext();
 export const InteractionsContext = React.createContext();
 
 export const Store = () => {
-  const [id, setId] = useState(11012);
+  const [id, setId] = useState(11001);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [styles, setStyles] = useState([]);

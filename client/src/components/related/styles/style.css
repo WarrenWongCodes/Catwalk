@@ -1,44 +1,71 @@
-
-
-.slide-img {
-  height: 300px;
-  width: 200px;
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.card {
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  width: 250px;
+}
+.card-header img {
+  width: 100%;
+  height: 200px;
+  font-family: "Inter", sans-serif;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+  min-height: 250px;
 }
 
-.cards {
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	grid-gap: 1em;
-	padding: 2em;
-  /* grid-auto-flow: column; */
-  overflow-x: hidden;
-  }
+.tag {
+  background: #f9f9f9;
+  font-family: "Inter", sans-serif;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tag-teal {
+  background-color: var(--brand-color);
+}
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: left;
-  }
+.card-body p {
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+  margin: 0 0 40px;
+}
+.user {
+  display: flex;
+  margin-top: auto;
+}
 
-  .price {
-    color: grey;
-    font-size: 12px;
-  }
-
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
-
-  .card button:hover {
-    opacity: 0.7;
-  }
-
+.user img {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.price-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #545d7a;
+}
