@@ -1,4 +1,4 @@
-.star-rating {
+/* .star-rating {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,12 +7,12 @@
 
 input[type="radio"] {
   display: none;
-}
+} */
 
 :root {
   --star-size: 2vh;
-  --star-color: white;
-  --star-background: #000;
+  --star-color: #fff;
+  --star-background: black;
   --star-border: solid 1px;
 }
 
@@ -23,6 +23,7 @@ input[type="radio"] {
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
+  background-clip: text;
 }
 
 .star:before {
@@ -41,6 +42,7 @@ input[type="radio"] {
 
 .starContainer {
   display: flex;
+  align-items: center;
 }
 
 .disp {
@@ -73,14 +75,14 @@ input[type="radio"] {
 }
 
 .barContainer {
-  width: 100%;
+  width: 50%;
   background-color: #f1f1f1;
   text-align: center;
   color: white;
 }
 
 .bar {
-  width: 60%;
+  width: 100%;
   height: 18px;
   background-color: rgb(21, 99, 21);
 }
