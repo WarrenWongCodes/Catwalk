@@ -65,9 +65,9 @@ export default function App(props) {
         <RelatedContext.Provider value={related}>
           <Related />
         </RelatedContext.Provider>
-        {/* <QaContext.Provider value={qa}>
+        <QaContext.Provider value={qa}>
           <QA />
-        </QaContext.Provider> */}
+        </QaContext.Provider>
       </div>
     </main>
   );
