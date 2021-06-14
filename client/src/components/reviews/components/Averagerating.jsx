@@ -28,6 +28,7 @@ const AveRatingDisp = (props) => {
     useEffect(() => {
       setAve(Math.ceil(display * 4) / 4);
     })
+    // check docs about second param for useEffect
 
     return Math.ceil(display * 4) / 4;
   };
