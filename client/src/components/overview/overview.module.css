@@ -12,5 +12,5 @@
 
 .infoContainer {
   width: 33%;
-  background-color: rgb(160, 112, 136);
+  background-color: var(--brand-color);
 }

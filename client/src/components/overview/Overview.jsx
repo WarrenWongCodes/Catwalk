@@ -6,10 +6,10 @@ import styles from "./overview.module.css";
 const { overview } = styles;
 
 export default function Overview() {
-  // const product = useContext(ProductContext);
-  // const styles = useContext(StylesContext);
+  const product = useContext(ProductContext);
+  const styles = useContext(StylesContext);
 
-  // console.log("Overview Context from component", product.name);
+  console.log("Overview Context from component", product.name);
 
   return (
     <div className={`container ${overview}`}>

@@ -34,8 +34,8 @@ module.exports = {
           "style-loader",
           {
             loader: "css-loader",
-            importLoaders: 1,
-            modules: true,
+            // importLoaders: 1,
+            // modules: true,
           },
         ],
         include: /\.module\.css$/,

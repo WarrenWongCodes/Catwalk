@@ -7,10 +7,4 @@ import "./App.css";
 import Navbar from "./src/components/common/Navbar/Navbar.jsx";
 import Overview from "./src/components/overview/Overview";
 
-ReactDOM.render(
-  <>
-    <Navbar />
-    <Overview />
-  </>,
-  document.getElementById("app")
-);
+ReactDOM.render(<App />, document.getElementById("app"));
