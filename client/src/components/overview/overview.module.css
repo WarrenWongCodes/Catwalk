@@ -1,0 +1,16 @@
+.overview {
+  display: flex;
+  flex-direction: row;
+  height: 200vh;
+  padding-top: 100px;
+}
+
+.galleryContainer {
+  width: 67%;
+  background-color: rgb(168, 168, 168);
+}
+
+.infoContainer {
+  width: 33%;
+  background-color: rgb(160, 112, 136);
+}

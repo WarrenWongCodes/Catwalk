@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
 import Related from "./components/related/Related.jsx";
-// import Reviews from "./components/reviews/Reviews.jsx";
+import Reviews from "./components/reviews/Reviews.jsx";
 import QA from "./components/qa/QA.jsx";
-
-// import './App.css'
+import Navbar from "./components/common/Navbar/Navbar.jsx";
+// import "./App.css";
 
 import {
   Store,
@@ -54,6 +54,7 @@ export default function App(props) {
         <h1>{product.name}</h1>
       </header>
       <div>
+        <Navbar />
         <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
