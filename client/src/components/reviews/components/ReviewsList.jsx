@@ -1,20 +1,18 @@
 import React, { useContext } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
 import { Container, Divider, Comment } from "semantic-ui-react";
-import RatingExampleStar from "./StarRatings.jsx";
+import StarRating from './StarRatings.jsx';
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);
   const review = useContext(ReviewsContext);
-  // const styles = useContext(StylesContext);
-  // console.log("ReviewsList Context from component", product.id, review[0]);
 
   const reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
-        <Container>
+        <Container key={review_id} >
           <Divider />
-          <RatingExampleStar />
+          <StarRating rating={rating}/>
           <div key={review_id}>
             <Container textAlign="right" style={{ color: "grey" }}>
               {reviewer_name} {new Date(date).toDateString()}

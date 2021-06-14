@@ -12,5 +12,13 @@ dist/*
 node_modules/
 *.log
 
+<<<<<<< HEAD
+config.js
+
+/public/bundle.js
+||||||| 750b354
+config.js
+=======
 config.js
 public/bundle.js
+>>>>>>> 5daff2fe1fd080e568f84dd825b035e5eb1e929a
