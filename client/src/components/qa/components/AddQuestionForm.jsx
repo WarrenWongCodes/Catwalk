@@ -1,96 +1,81 @@
-import React, {
-  useState,
-  useImperativeHandle,
-  forwardRef,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { useContext } from "react";
 import { createPortal } from "react-dom";
-import "../styles/AddQuestionForm.module.css";
+import axios from "axios";
+import KEYS from "../../../../../config";
+import { useInput } from "../utils/formInputHook";
+import { QaContext } from "../../../store";
 
-const questionModalElement = document.getElementById("modal-question");
+export default function AddQuestionForm() {
+  const { id } = useContext(QaContext);
+  const { value: name, bind: bindName, reset: resetName } = useInput("");
+  const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
+  const { value: body, bind: bindBody, reset: resetBody } = useInput("");
 
-const AddQuestionForm = function (
-  { fade = false, defaultOpened = false },
-  ref
-) {
-  const [isOpen, setIsOpen] = useState(defaultOpened);
+  const addAQuestionHandler = (e) => {
+    e.preventDefault();
+    let data = JSON.stringify({
+      body: body,
+      name: name,
+      email: email,
+      product_id: Number(id),
+    });
 
-  const close = useCallback(() => setIsOpen(false), []);
-  // exposes methods to parent component
-  useImperativeHandle(
-    ref,
-    () => ({
-      open: () => setIsOpen(true),
-      close,
-    }),
-    [close]
-  );
-
-  const handleEscape = useCallback(
-    (e) => {
-      if (event.keyCode === 27) close();
-    },
-    [close]
-  );
-
-  useEffect(() => {
-    if (isOpen) document.addEventListener("keydown", handleEscape, false);
-    return () => {
-      document.removeEventListener("keydown", handleEscape, false);
+    let config = {
+      method: "post",
+      url: `${KEYS.ENDPOINT}/qa/questions`,
+      headers: {
+        Authorization: `${KEYS.API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
     };
-  }, [handleEscape, isOpen]);
 
-  return createPortal(
-    isOpen ? (
-      <div className={`modal ${fade ? "modal-fade" : ""}`}>
-        <div className="modal-overlay" onClick={close} />
-        <span
-          role="button"
-          className="modal-close"
-          aria-label="close"
-          onClick={close}
-        >
-          x
-        </span>
-        <div className="modal-body">
-          <form>
-            <label>
-              Your Question*:
-              <br />
-              <textarea></textarea>
-            </label>
-            <br />
-            <br />
-            <label>
-              What is your nickname*:
-              <br />
-              <input
-                type="text"
-                name="nickname"
-                placeholder="For privacy reasons, do not use your full name or email address"
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              Your Email*:
-              <br />
-              <br />
-              <input type="text" name="email" />
-              <br />
-              For authentication reasons, you will not be emailed
-            </label>
-            <br />
-            <br />
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
-      </div>
-    ) : null,
-    questionModalElement
+    axios(config)
+      .then((response) => {
+        console.log(response.status);
+        resetName();
+        resetBody();
+        resetEmail();
+      })
+      .catch((error) => alert("Incorrect Email Address"));
+  };
+
+  return (
+    <form>
+      <label>
+        Your Question*:
+        <br />
+        <textarea name="body" {...bindBody}></textarea>
+      </label>
+      <br />
+      <br />
+      <label>
+        What is your nickname*:
+        <br />
+        <input
+          type="text"
+          name="name"
+          placeholder="For privacy reasons, do not use your full name or email address"
+          {...bindName}
+        />
+      </label>
+      <br />
+      <br />
+      <label>
+        Your Email*:
+        <br />
+        <br />
+        <input type="text" name="email" {...bindEmail} />
+        <br />
+        For authentication reasons, you will not be emailed
+      </label>
+      <br />
+      <br />
+      <input
+        onClick={(e) => addAQuestionHandler(e)}
+        type="submit"
+        value="Submit"
+      />
+    </form>
   );
-};
-
-// forward reference to modal component
-export default forwardRef(AddQuestionForm);
+}

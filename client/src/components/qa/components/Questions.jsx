@@ -1,13 +1,12 @@
 import React from "react";
+import Answer from "./Answer";
 import {
   helpfulQuestion,
   reportQuestion,
-  helpfulAnswer,
-  reportAnswer,
   showMoreAnswers,
 } from "../utils/helperFunctions";
 
-export default function Questions({ question, answers }) {
+export default function Questions({ question, answers, setOpen }) {
   // TODO: Sort the Answers by SELLER first
   answers.sort((a, b) => {
     return b.helpfulness - a.helpfulness;
@@ -35,26 +34,13 @@ export default function Questions({ question, answers }) {
         >
           Report
         </span>
-        <span className="link">Add Answer</span>
+        <span onClick={() => setOpen(true)} className="link">
+          Add Answer
+        </span>
       </section>
       <span>A: </span>
       {aData.map((a, i) => {
-        return (
-          <>
-            <span>{a.body}</span>
-            <section>
-              <span>{`by ${a.answerer_name}, ${a.date.slice(0, 10)} |`}</span>
-              <span>Helpful?</span>
-              <span onClick={() => helpfulAnswer(a.id)} className="link">
-                Yes
-              </span>
-              <span>{`(${a.helpfulness}) |`}</span>
-              <span onClick={() => reportAnswer(a.id)} className="link">
-                Report
-              </span>
-            </section>
-          </>
-        );
+        return <Answer a={a} key={i} />;
       })}
       {/* TODO: on click, increase the answer count by 2 and can scroll*/}
       {answers.length > 2 ? <button>See more answers</button> : null}

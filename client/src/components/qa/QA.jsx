@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Search from "./components/Search.jsx";
 import QuestionsList from "./components/QuestionsList.jsx";
 import { QaContext } from "../../store.jsx";
 
 export default function QA() {
   const [query, setQuery] = useState("");
-  const qa = useContext(QaContext);
 
   const searchChangeHandler = (e) => {
     setQuery(e.target.value);

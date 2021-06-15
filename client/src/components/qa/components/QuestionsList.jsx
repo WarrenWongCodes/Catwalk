@@ -1,13 +1,20 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { QaContext } from "../../../store.jsx";
-import KEYS from "/config.js";
 import Questions from "./Questions.jsx";
+import QuestionModal from "./QuestionModal.jsx";
 import AddQuestionForm from "./AddQuestionForm.jsx";
+import AnswerModal from "./AnswerModal.jsx";
+import AddAnswerForm from "../components/AddAnswerForm.jsx";
+import styles from "../styles/FormModals.module.css";
+
+const { buttonWrapperStyles } = styles;
 
 export default function QuestionsList({ query }) {
-  const qa = useContext(QaContext);
-  const questionModal = useRef(null);
+  const { qa, id } = useContext(QaContext);
+
+  const [isOpenQuestion, setIsOpenQuestion] = useState(false);
+  const [isOpenAnswer, setIsOpenAnswer] = useState(false);
 
   let qaData = [...qa];
   let qCount = 2; // Defaults to 2 questions
@@ -32,15 +39,37 @@ export default function QuestionsList({ query }) {
       <section>
         {qaData.map((q, i) => {
           let answers = Object.values(q.answers);
-          return <Questions answers={answers} question={q} key={i} />;
+          return (
+            <Questions
+              setOpen={setIsOpenAnswer}
+              answers={answers}
+              question={q}
+              key={i}
+            />
+          );
         })}
         <br />
         <br />
         {qaData.length > 1 ? <button>More Answered Questions</button> : null}
-        <button onClick={() => questionModal.current.open()}>
+
+        <button onClick={() => setIsOpenQuestion(true)}>
           Add a Question +
         </button>
-        <AddQuestionForm ref={questionModal} />
+
+        <div className={buttonWrapperStyles}>
+          <QuestionModal
+            open={isOpenQuestion}
+            onClose={() => setIsOpenQuestion(false)}
+          >
+            <AddQuestionForm />
+          </QuestionModal>
+          <AnswerModal
+            open={isOpenAnswer}
+            onClose={() => setIsOpenAnswer(false)}
+          >
+            <AddAnswerForm />
+          </AnswerModal>
+        </div>
       </section>
     </>
   );
