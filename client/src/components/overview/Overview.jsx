@@ -14,6 +14,7 @@ export default function Overview() {
   return (
     <div className={`container ${overview}`}>
       <Gallery />
+        {/* <div>hi</div> */}
       <Information />
     </div>
   );

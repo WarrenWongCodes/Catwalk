@@ -63,11 +63,13 @@ export default function App(props) {
         <QaContext.Provider value={qa}>
           <QA />
         </QaContext.Provider>
+        <ProductContext.Provider value={product}>
         <ReviewsContext.Provider value={reviews}>
           <MetaContext.Provider value={meta}>
             <Reviews />
           </MetaContext.Provider>
         </ReviewsContext.Provider>
+        </ProductContext.Provider>
       </div>
     </main>
   );
