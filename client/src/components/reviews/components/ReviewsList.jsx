@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
 import { Container, Divider, Comment } from "semantic-ui-react";
 import StarRating from './StarRatings.jsx';
+import MoreReviews from './MoreReviews.jsx';
 import '../styles/reviews.css';
 
 
@@ -33,8 +34,9 @@ const ReviewsList = () => {
         {/* <RatingExampleStar /> */}
         <p>Reviews</p>
         <Divider />
-        <div>{reviews}</div>
+        <div>{reviews.slice(0,2)}</div>
       </Container>
+      <MoreReviews />
     </div>
   );
 };
