@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/reviews.css';
 
 const StarRating = (props) => {
 
@@ -7,8 +8,8 @@ const StarRating = (props) => {
   };
 
   return (
-    <div className='starContainer'>
-      <div className='star' style={{...rating}}>
+    <div className='starContainer' >
+      <div className='star' style={{ ...rating }}>
       </div>
     </div>
   )

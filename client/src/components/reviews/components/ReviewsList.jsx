@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
 import { Container, Divider, Comment } from "semantic-ui-react";
 import StarRating from './StarRatings.jsx';
+import '../styles/reviews.css';
+
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);

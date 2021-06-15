@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { MetaContext } from '../../../store.jsx';
+import '../styles/reviews.css';
 
 const RatingBars = () => {
   const meta = useContext(MetaContext);
@@ -7,13 +8,15 @@ const RatingBars = () => {
   const ratings = {}
 
   const Bar = (props) => {
-    let percent = props.percent * 10;
+    let percent = props.percent * 100 ;
     let style = {
-      width: percent,
+      width: `${percent}%`
     }
+
     return (
       <>
         <div className='row'>
+
           <div className='leftSide'>
             <div>{props.star} Stars</div>
           </div>
@@ -39,8 +42,13 @@ const RatingBars = () => {
 
   const ratingsArr = Object.entries(ratings);
 
+  const totalRatings = ratingsArr.reduce((acc, item) => {
+    return acc + (parseInt(item[1]));
+  }, 0);
+
   const RatingsList = ratingsArr.map((item) => {
-    return <Bar key={item[0][0]} star={item[0][0]} percent={item[1]} />
+    let starPercentage = (item[1] / totalRatings);
+    return <Bar key={item[0][0]} star={item[0][0]} percent={starPercentage} />
   })
 
   return (

@@ -1,4 +1,4 @@
-/* .star-rating {
+.star-rating {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,23 +7,24 @@
 
 input[type="radio"] {
   display: none;
-} */
+}
 
-/* :root {
+:root {
   --star-size: 2vh;
   --star-color: #fff;
   --star-background: black;
   --star-border: solid 1px;
-} */
+}
 
 .star {
-  --percent: calc(var(--rating) / 5 * 100%);
+  --percent: calc((var(--rating) + 0.05) / 5 * 100%);
 
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
   background-clip: text;
+  padding: 0px;
 }
 
 .star:before {
@@ -36,12 +37,14 @@ input[type="radio"] {
   );
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .starContainer {
   display: flex;
+  padding: 0px;
   align-items: center;
 }
 
@@ -64,7 +67,7 @@ input[type="radio"] {
 
 .center {
   flex: 80%;
-  width: 70%;
+  width: 100%;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 50px;
