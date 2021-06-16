@@ -13,8 +13,8 @@ export default function QA() {
 
   // TODO: filter the qa data
   if (query.length > 2) {
-    console.log(query);
-    console.log("entire QA:", qa);
+    // console.log(query);
+    // console.log("entire QA:", qa);
     // look at the question AND answer body for entire list
     // validate with a REGEX expression for 50% match to query
     // if passes the test, then keep that in the qa list

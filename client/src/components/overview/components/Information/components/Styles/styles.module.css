@@ -1,0 +1,22 @@
+.stylesContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: var(--xl-white-space);
+}
+
+.styleText {
+  font-weight: 700;
+}
+
+.imgContainer {
+  height: 48px;
+  width: 48px;
+  margin-right: var(--l-white-space);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
