@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { IdContext, setId } from "../../../store.jsx";
 import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
@@ -9,6 +10,7 @@ import starStyle from "../../../styles/global/star.css";
 // console.log(star);
 
 export default function CardComponent({ product }) {
+  const id = useContext(IdContext);
   const [relatedImage, setRelatedImages] = useState([
     "https://i.pinimg.com/originals/a2/dc/96/a2dc9668f2cf170fe3efeb263128b0e7.gif",
   ]);
@@ -53,6 +55,10 @@ export default function CardComponent({ product }) {
     return Math.ceil(display * 4) / 4;
   };
 
+  const handleTitleClick = () => {
+    console.log("Related Product Title Clicked!");
+  };
+
   if (product.id !== undefined) {
     useEffect(() => {
       axios
@@ -78,7 +84,10 @@ export default function CardComponent({ product }) {
         <span
           className={`${Styles.tag} ${Styles.tagTeal}`}
         >{`${product.category}`}</span>
-        <h2 className={Styles.title}>{`${product.name}`}</h2>
+        <h2
+          className={Styles.title}
+          onClick={() => handleTitleClick()}
+        >{`${product.name}`}</h2>
         <p>{`${product.slogan}`}</p>
         <div className={Styles.user}>
           <img

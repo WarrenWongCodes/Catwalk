@@ -59,7 +59,9 @@ export default function App(props) {
         </ProductContext.Provider> */}
         <RelatedContext.Provider value={related}>
           <ProductContext.Provider value={product}>
-            <Related />
+            <IdContext.Provider value={id}>
+              <Related />
+            </IdContext.Provider>
           </ProductContext.Provider>
         </RelatedContext.Provider>
         {/* <QaContext.Provider value={qa}>
