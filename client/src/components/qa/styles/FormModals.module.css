@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(223, 91, 91);
+  background-color: var(--brand-color);
   padding: 50px;
   z-index: 1000;
 }

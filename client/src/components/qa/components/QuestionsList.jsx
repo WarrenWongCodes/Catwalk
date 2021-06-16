@@ -7,21 +7,26 @@ import AddQuestionForm from "./AddQuestionForm.jsx";
 import AnswerModal from "./AnswerModal.jsx";
 import AddAnswerForm from "../components/AddAnswerForm.jsx";
 import styles from "../styles/FormModals.module.css";
+import QuestionListStyles from "../styles/QuestionsList.module.css";
+import metaDataStyles from "../styles/MetaData.module.css";
 
+const { buttonSpacing } = QuestionListStyles;
 const { buttonWrapperStyles } = styles;
+const { scrollQA, spreadContainer } = metaDataStyles;
 
 export default function QuestionsList({ query }) {
   const { qa, id } = useContext(QaContext);
 
   const [isOpenQuestion, setIsOpenQuestion] = useState(false);
   const [isOpenAnswer, setIsOpenAnswer] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState("");
+  const [numOfQuestions, setQuestionDisplay] = useState(2);
+  const [showScrollView, setScrollView] = useState(false);
 
   let qaData = [...qa];
-  let qCount = 2; // Defaults to 2 questions
+
   if (qaData.length > 1) {
-    // when 'more answered questions' is clicked, increase counter by 2
-    // when collapse, reset counter to 2
-    qaData = qaData.slice(0, qCount);
+    qaData = qaData.slice(0, numOfQuestions);
   }
 
   if (query.length > 2) {
@@ -34,14 +39,26 @@ export default function QuestionsList({ query }) {
     qaData = newData;
   }
 
+  const showMoreQuestions = () => {
+    if (numOfQuestions > 3) {
+      setScrollView(true);
+    }
+    setQuestionDisplay(numOfQuestions + 2);
+  };
+
+  const questionHandler = (q) => {
+    setIsOpenAnswer(true);
+    setCurrentQuestion(q);
+  };
+
   return (
     <>
-      <section>
+      <section className={`${showScrollView ? scrollQA : ""}`}>
         {qaData.map((q, i) => {
           let answers = Object.values(q.answers);
           return (
             <Questions
-              setOpen={setIsOpenAnswer}
+              setOpen={questionHandler}
               answers={answers}
               question={q}
               key={i}
@@ -50,9 +67,16 @@ export default function QuestionsList({ query }) {
         })}
         <br />
         <br />
-        {qaData.length > 1 ? <button>More Answered Questions</button> : null}
+        {qaData.length > 1 ? (
+          <button
+            onClick={showMoreQuestions}
+            className={`textButton ${buttonSpacing}`}
+          >
+            More Answered Questions
+          </button>
+        ) : null}
 
-        <button onClick={() => setIsOpenQuestion(true)}>
+        <button className="textButton" onClick={() => setIsOpenQuestion(true)}>
           Add a Question +
         </button>
 
@@ -67,10 +91,12 @@ export default function QuestionsList({ query }) {
             open={isOpenAnswer}
             onClose={() => setIsOpenAnswer(false)}
           >
-            <AddAnswerForm />
+            <AddAnswerForm question={currentQuestion} />
           </AnswerModal>
         </div>
       </section>
+      <br />
+      <br />
     </>
   );
 }

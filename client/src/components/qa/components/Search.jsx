@@ -1,11 +1,15 @@
 import React from "react";
+import styles from "../styles/Search.module.css";
 
 export default function Search({ search }) {
   return (
-    <input
-      type="text"
-      placeholder="Have a question? Search for answers…"
-      onChange={search}
-    ></input>
+    <>
+      <input
+        className={styles.searchBar}
+        type="text"
+        placeholder="Have a question? Search for answers…"
+        onChange={search}
+      ></input>
+    </>
   );
 }

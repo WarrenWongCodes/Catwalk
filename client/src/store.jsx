@@ -13,7 +13,7 @@ export const CartContext = React.createContext();
 export const InteractionsContext = React.createContext();
 
 export const Store = () => {
-  const [id, setId] = useState("11009" || window.location.pathname);
+  const [id, setId] = useState("11003" || window.location.pathname);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -100,7 +100,7 @@ export const Store = () => {
 
   const getQa = () => {
     axios
-      .get(`qa/questions?product_id=${id}`, options)
+      .get(`qa/questions?product_id=${id}&count=30`, options)
       .then((res) => {
         // console.log("QA after set", res.data.results);
         setQa(res.data.results);

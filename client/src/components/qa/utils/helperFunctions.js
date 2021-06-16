@@ -37,15 +37,4 @@ const reportAnswer = (answerId) => {
     .catch((err) => console.log(err));
 };
 
-const showMoreAnswers = () => {
-  // TODO: on click create a scroll field with all the answers available
-  // see more answers turns to collapse answers
-};
-
-export {
-  helpfulQuestion,
-  reportQuestion,
-  helpfulAnswer,
-  reportAnswer,
-  showMoreAnswers,
-};
+export { helpfulQuestion, reportQuestion, helpfulAnswer, reportAnswer };
