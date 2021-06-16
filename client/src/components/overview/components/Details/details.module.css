@@ -1,0 +1,27 @@
+.slogan {
+  font: var(--m-font);
+}
+
+.productDetail {
+  font: var(--s-font);
+  margin-top: var(--m-white-space);
+}
+
+.descriptionContainer {
+  padding: var(--l-white-space);
+  width: 70%;
+  border-right: 1.5px solid var(--font-color);
+}
+
+.featuresContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  padding: var(--l-white-space);
+}
+
+.icon {
+  font: var(--xl-font);
+}

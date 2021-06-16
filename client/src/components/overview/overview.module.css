@@ -1,8 +1,15 @@
+.combined {
+  height: 120vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .overview {
   display: flex;
   flex-direction: row;
-  height: 90vh;
-  padding-top: 100px;
+  height: 70%;
+  padding-top: 60px;
+  width: 100%;
 }
 
 .galleryContainer {
@@ -17,4 +24,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  padding: var(--xl-white-space);
 }
