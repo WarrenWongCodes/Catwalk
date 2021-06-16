@@ -1,40 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-* {
+/* * {
   box-sizing: border-box;
+} */
+
+h2 {
+  padding: 20px 0 20px 0;
 }
-.container {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  flex-wrap: nowrap;
-  overflow: hidden;
+
+.cardsContainer {
+   display: flex;
+   flex-wrap: nowrap;
+   overflow-x: auto;
+   -webkit-overflow-scrolling: touch;
+   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 .card {
   margin: 10px;
-  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   width: 250px;
 }
-.card-header img {
+.cardHeader img {
   width: 100%;
   height: 200px;
-  font-family: "Inter", sans-serif;
   object-fit: cover;
 }
-.card-body {
+.cardBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  font-family: "Inter", sans-serif;
   padding: 20px;
   min-height: 250px;
 }
 
+.title {
+  padding: 20px 0 20px 0;
+}
+
 .tag {
   background: #f9f9f9;
-  font-family: "Inter", sans-serif;
   border-radius: 50px;
   font-size: 12px;
   margin: 0;
@@ -43,15 +47,14 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.tag-teal {
+.tagTeal {
   background-color: var(--brand-color);
 }
 
-.card-body p {
-  font-size: 13px;
-  font-family: "Roboto", sans-serif;
+.cardBody p {
   margin: 0 0 40px;
 }
+
 .user {
   display: flex;
   margin-top: auto;
@@ -63,9 +66,9 @@
   height: 20px;
   margin-right: 10px;
 }
-.price-info h5 {
+.priceInfo h5 {
   margin: 0;
 }
-.user-info small {
+.userInfo small {
   color: #545d7a;
 }

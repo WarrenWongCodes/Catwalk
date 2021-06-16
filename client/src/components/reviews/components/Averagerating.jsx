@@ -1,13 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { MetaContext } from '../../../store.jsx';
-import { Rating, Container } from 'semantic-ui-react';
-import StarRating from './StarRatings';
-import RatingBars from './RatingBars';
-import Recommend from './Recommend';
-import SizeSlider from './SizeSlider';
+import React, { useContext, useState, useEffect } from "react";
+import { MetaContext } from "../../../store.jsx";
+import { Rating, Container } from "semantic-ui-react";
+import StarRating from "./StarRatings";
+import RatingBars from "./RatingBars";
+import Recommend from "./Recommend";
+import SizeSlider from "./SizeSlider";
+import "../../../styles/global/star.css";
 
 const AveRatingDisp = (props) => {
-
   const meta = useContext(MetaContext);
   const ratings = meta.ratings;
   const [ave, setAve] = useState(0);
@@ -24,10 +24,10 @@ const AveRatingDisp = (props) => {
       display = ratingsArr.reduce((acc, rating) => {
         return acc + rating / totalRatings;
       }, 0);
-    };
+    }
     useEffect(() => {
       setAve(Math.ceil(display * 4) / 4);
-    })
+    });
     // check docs about second param for useEffect
 
     return Math.ceil(display * 4) / 4;
@@ -35,10 +35,10 @@ const AveRatingDisp = (props) => {
 
   return (
     <div>
-      <h3 className='ratingsHeadline'>RATINGS & REVIEWS</h3>
-      <div className='disp'>
+      <h3 className="ratingsHeadline">RATINGS & REVIEWS</h3>
+      <div className="disp">
         <Ave />
-        <StarRating rating={ave}/>
+        <StarRating rating={ave} />
       </div>
       <div>
         <Recommend />
