@@ -1,14 +1,13 @@
-.combined {
-  height: 120vh;
+/* .combined {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .overview {
   display: flex;
   flex-direction: row;
-  height: 70%;
-  padding-top: 60px;
+  min-height: 90vh;
+  padding-top: 100px;
   width: 100%;
 }
 

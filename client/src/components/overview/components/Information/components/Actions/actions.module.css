@@ -14,6 +14,7 @@
 .size {
   width: 90%;
 }
+
 .quantity {
   width: 100%;
 }
@@ -25,11 +26,11 @@
 }
 
 .addToBagContainer {
-  width: 85%;
+  width: 80%;
 }
 
 .favoriteContainer {
-  width: 15%;
+  width: 20%;
 }
 
 .bag {
@@ -47,9 +48,9 @@
   padding: var(--s-white-space);
   color: var(--font-color);
   background-color: var(--bg-color);
-  width: 100%;
+  min-width: 100%;
   text-align: center;
-  height: 100%;
+  min-height: 100%;
 }
 
 .icon {

@@ -12,7 +12,7 @@ const Information = () => {
 
   return (
     <div className={infoContainer}>
-      <Description product={product} />
+      <Description product={product} styles={styles} />
       <Styles styles={styles} />
       <Actions styles={styles} />
     </div>
