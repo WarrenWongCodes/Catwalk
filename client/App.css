@@ -1,3 +1,5 @@
+/*
+
 /* .star-rating {
   display: flex;
   justify-content: center;
@@ -9,12 +11,14 @@ input[type="radio"] {
   display: none;
 } */
 
-/* :root {
+/*
+
+:root {
   --star-size: 2vh;
   --star-color: #fff;
   --star-background: black;
   --star-border: solid 1px;
-} */
+}
 
 .star {
   --percent: calc(var(--rating) / 5 * 100%);
@@ -55,13 +59,14 @@ input[type="radio"] {
 
 /* RatingBars */
 
+/*
 .leftSide {
   flex: 20%;
-  /* float: left; */
+  float: left;
   width: 70%;
   margin-top: 10px;
 }
-
+/*
 .center {
   flex: 80%;
   width: 70%;
@@ -97,7 +102,7 @@ input[type="radio"] {
   width: 100%;
   background-color: white;
   text-align: center;
-  /* color: white; */
+  color: white;
 }
 
 .small {
@@ -126,3 +131,5 @@ input[type="radio"] {
 .spacer {
   margin: 10px 0 10px 0;
 }
+
+ */

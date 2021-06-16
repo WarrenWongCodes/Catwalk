@@ -5,7 +5,7 @@ import StarRating from './StarRatings';
 import RatingBars from './RatingBars';
 import Recommend from './Recommend';
 import SizeSlider from './SizeSlider';
-import '../styles/reviews.css';
+// import '../styles/reviews.css';
 
 const AveRatingDisp = (props) => {
   const meta = useContext(MetaContext);

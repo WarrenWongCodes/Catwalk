@@ -5,10 +5,6 @@
   min-height: 100vh;
 }
 
-input[type="radio"] {
-  display: none;
-}
-
 :root {
   --star-size: 2vh;
   --star-color: #fff;
@@ -61,7 +57,7 @@ input[type="radio"] {
 .leftSide {
   flex: 20%;
   /* float: left; */
-  width: 70%;
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -73,12 +69,13 @@ input[type="radio"] {
   margin-right: 50px;
 }
 
-.row {
+/* .row {
   display: flex;
-}
+} */
 
 .barContainer {
-  width: 50%;
+  display: flex;
+  /* width: 100%; */
   background-color: #f1f1f1;
   text-align: center;
   color: white;

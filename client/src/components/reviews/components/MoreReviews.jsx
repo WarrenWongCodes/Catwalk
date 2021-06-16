@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Container, Divider, Comment } from "semantic-ui-react";
 import ReviewsList from './ReviewsList';
 import StarRating from './StarRatings.jsx';
@@ -9,6 +9,13 @@ import CallMoreReviews from '../api/CallMoreReviews';
 const MoreReviews = (props) => {
 
   const [reviews, setReviews] = useState([]);
+  const _isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      _isMounted.current = false;
+    }
+  }, []);
 
   const onClickInputChange = () => {
     const response = CallMoreReviews.get("/reviews/", {
@@ -18,7 +25,11 @@ const MoreReviews = (props) => {
       }
     })
       .then((response) => {
-        setReviews(response.data.results);
+        if(_isMounted.current) {
+          setReviews(response.data.results);
+          history.push()
+        }
+
       })
       .catch((err) => {
         console.log(err);
@@ -28,18 +39,18 @@ const MoreReviews = (props) => {
   const allReviews = reviews.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
-        <Container key={review_id} >
+        <div key={review_id} >
           <Divider />
           <StarRating rating={rating}/>
           <div key={review_id}>
-            <Container textAlign="right" style={{ color: "grey" }}>
+            <div style={{ color: "grey" }}>
               {reviewer_name} {new Date(date).toDateString()}
-            </Container>
+            </div>
             <Comment as="h4">{summary}</Comment>
             <p key={review_id}>{body}</p>
           </div>
           <Divider />
-        </Container>
+        </div>
       );
     }
   );
@@ -54,7 +65,6 @@ const MoreReviews = (props) => {
       >
         More Reviews
       </button>
-
     </>
   );
 };

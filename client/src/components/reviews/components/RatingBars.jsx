@@ -15,7 +15,7 @@ const RatingBars = () => {
 
     return (
       <>
-        <div className='row'>
+        {/* <div className='row'> */}
 
           <div className='leftSide'>
             <div>{props.star} Stars</div>
@@ -25,7 +25,7 @@ const RatingBars = () => {
               <div className='bar' style={{...style}}></div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </>
     )
   }
