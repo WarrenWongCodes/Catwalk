@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
-import { Container, Divider, Comment } from "semantic-ui-react";
-import StarRating from './StarRatings.jsx';
+// import { Container, Divider, Comment } from "semantic-ui-react";
+import StarRating from "./StarRatings.jsx";
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);
@@ -10,9 +10,9 @@ const ReviewsList = () => {
   const reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
-        <Container key={review_id} >
+        <Container key={review_id}>
           <Divider />
-          <StarRating rating={rating}/>
+          <StarRating rating={rating} />
           <div key={review_id}>
             <Container textAlign="right" style={{ color: "grey" }}>
               {reviewer_name} {new Date(date).toDateString()}

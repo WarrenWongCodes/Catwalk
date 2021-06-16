@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Card, Icon, Image, Rating } from "semantic-ui-react";
 import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
@@ -56,19 +55,15 @@ export default function CardComponent({ product }) {
 
   if (product.id !== undefined) {
     useEffect(() => {
-      // console.log(currentProductID);
       axios
         .get(`/products/${currentProductID}/styles/?default=true`, options)
         .then((res) => {
-          // console.log("Why are we not getting here????", res.data.results);
           setRelatedImages(getDefaultImage(res.data.results));
         });
 
       axios
         .get(`/reviews/meta?product_id=${currentProductID}`, options)
         .then((res) => {
-          // console.log("Why are we not getting here????", res.data.results);
-          // console.log("Meta Data for Related Products", res.data);
           setRelatedRating(Rating(res.data));
         });
     }, []);
@@ -92,7 +87,7 @@ export default function CardComponent({ product }) {
           />
           <div className={Styles.priceInfo}>
             <h3>{`${product.default_price}`}</h3>
-            <StarRating rating={relatedRating} />
+            <p>{`${relatedRating} out of 5`}</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { MetaContext } from "../../../store.jsx";
-import { Rating, Container } from "semantic-ui-react";
+// import { Rating, Container } from "semantic-ui-react";
 import StarRating from "./StarRatings";
 import RatingBars from "./RatingBars";
 import Recommend from "./Recommend";

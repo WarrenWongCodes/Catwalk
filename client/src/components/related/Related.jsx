@@ -11,10 +11,7 @@ export default function Related() {
   const [outfits, setOutfits] = useState([]);
 
   const handleOutfitClick = () => {
-    console.log(`${product.name} has been added to your outfit`);
-    console.log("!@#$");
     setOutfits(<CardComponent key={product.id} product={product} />);
-    console.log("Outfits state", outfits);
   };
 
   return (
