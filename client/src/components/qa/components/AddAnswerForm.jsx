@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import axios from "axios";
 import { useInput } from "../utils/formInputHook";
 import KEYS from "../../../../../config";
-import styles from "../styles/Forms.module.css";
 import { QaContext } from "../../../store";
+import styles from "../styles/Forms.module.css";
 
 const { fontSize, spacingStyles } = styles;
 
@@ -22,6 +22,8 @@ export default function AddAnswerForm({ question }) {
       email: email,
       photos: [photo],
     });
+
+    console.log(data.photos);
 
     if (body.length < 1) {
       alert("You must enter a question");

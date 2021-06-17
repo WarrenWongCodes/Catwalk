@@ -51,7 +51,7 @@ export default function AddQuestionForm() {
         resetEmail();
         alert("Successfully added Answer");
       })
-      .catch((error) => console.log(err));
+      .catch((error) => console.log(error));
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { QaContext } from "../../../store.jsx";
 import Questions from "./Questions.jsx";
@@ -22,8 +22,10 @@ export default function QuestionsList({ query }) {
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [numOfQuestions, setQuestionDisplay] = useState(2);
   const [showScrollView, setScrollView] = useState(false);
+  const [availableQuestions, setAvailableQCount] = useState(0);
 
   let qaData = [...qa];
+  let availableQCount = qa.length;
 
   if (qaData.length > 1) {
     qaData = qaData.slice(0, numOfQuestions);
@@ -67,7 +69,7 @@ export default function QuestionsList({ query }) {
         })}
         <br />
         <br />
-        {qaData.length > 1 ? (
+        {qaData.length > 1 && numOfQuestions < availableQCount ? (
           <button
             onClick={showMoreQuestions}
             className={`textButton ${buttonSpacing}`}

@@ -8,7 +8,6 @@ const { font, imageDetails } = answerStyles;
 const { metaData, link } = metaDataStyles;
 
 export default function Answer({ a }) {
-  //TODO: add dummy photos data, and render if length > 1 underneath the answer metadata
   const [isShowingHelpful, setDisplayHelpful] = useState(true);
   const [isShowingReported, setDisplayReported] = useState(true);
 

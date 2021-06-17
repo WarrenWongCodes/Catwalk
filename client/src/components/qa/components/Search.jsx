@@ -5,6 +5,7 @@ export default function Search({ search }) {
   return (
     <>
       <input
+        id="searchText"
         className={styles.searchBar}
         type="text"
         placeholder="Have a question? Search for answers…"

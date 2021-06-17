@@ -49,9 +49,27 @@ export default function Questions({ question, answers, setOpen }) {
     setDisplayReported(false);
   };
 
+  let moreAnswers;
+  let collapseAnswers;
+  if (answers.length > 1 && numOfAnswers === 2) {
+    moreAnswers = (
+      <span className={seeMoreAnswers} onClick={seeMoreAnswersHandler}>
+        See more answers
+      </span>
+    );
+  } else if (answers.length <= 1) {
+    collapseAnswers = null;
+  } else {
+    collapseAnswers = (
+      <span className={seeMoreAnswers} onClick={seeMoreAnswersHandler}>
+        Collapse answers
+      </span>
+    );
+  }
+
   return (
     <>
-      <div className={spreadContainer}>
+      <div id="questionBox" className={spreadContainer}>
         <span>{`Q: ${question.question_body}`}</span>
         <span className={metaData}>
           <span>{`Helpful? `}</span>
@@ -87,15 +105,7 @@ export default function Questions({ question, answers, setOpen }) {
         })}
       </span>
       {/* TODO: on click, increase the answer count by 2 and can scroll*/}
-      {answers.length > 1 && numOfAnswers === 2 ? (
-        <span className={seeMoreAnswers} onClick={seeMoreAnswersHandler}>
-          See more answers
-        </span>
-      ) : (
-        <span className={seeMoreAnswers} onClick={seeMoreAnswersHandler}>
-          Collapse answers
-        </span>
-      )}
+      {moreAnswers ? moreAnswers : collapseAnswers}
       <br />
     </>
   );
