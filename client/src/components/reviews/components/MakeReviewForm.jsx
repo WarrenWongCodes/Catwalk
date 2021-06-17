@@ -1,25 +1,36 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import {createPortal } from 'react-dom';
-import axios from 'axios';
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import axios from "axios";
 
-import PostReview from '../api/PostReview';
+import PostReview from "../api/PostReview";
 import { useInput } from "../utils/formInputHook.jsx";
-import ReviewModal from './ReviewModal';
+import ReviewModal from "./ReviewModal";
 import { ReviewsContext } from "../../../store";
-import { Container, Divider, Comment } from "semantic-ui-react";
-import '../styles/reviews.css';
+// import { Container, Divider, Comment } from "semantic-ui-react";
+import "../styles/reviews.css";
 
 const MakeReviewForm = () => {
-
   const { id } = useContext(ReviewsContext);
   const { value: rating, bind: bindRating, reset: resetRating } = useInput("");
-  const { value: summary, bind: bindSummary, reset: resetSummary } = useInput("");
+  const {
+    value: summary,
+    bind: bindSummary,
+    reset: resetSummary,
+  } = useInput("");
   const { value: body, bind: bindBody, reset: resetBody } = useInput("");
-  const { value: reccomend, bind: bindReccomend, reset: resetReccomend } = useInput(true);
+  const {
+    value: reccomend,
+    bind: bindReccomend,
+    reset: resetReccomend,
+  } = useInput(true);
   const { value: name, bind: bindName, reset: resetName } = useInput("");
   const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
   const { value: photos, bind: bindPhotos, reset: resetPhotos } = useInput([]);
-  const { value: characteristics, bind: bindCharacteristics, reset: resetCharacteristics } = useInput({});
+  const {
+    value: characteristics,
+    bind: bindCharacteristics,
+    reset: resetCharacteristics,
+  } = useInput({});
 
   // const [ form, setForm ] = useState({
   //   product_id: 0,
@@ -33,14 +44,13 @@ const MakeReviewForm = () => {
   //   characteristics: {},
   // })
 
-
-    // axios(config)
-    // .then(function (response) {
-    //   console.log(JSON.stringify(response.data));
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });s
+  // axios(config)
+  // .then(function (response) {
+  //   console.log(JSON.stringify(response.data));
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });s
 
   const addAReviewHandler = (e) => {
     e.preventDefault();
@@ -54,15 +64,15 @@ const MakeReviewForm = () => {
       email: email,
       photos: [],
       characteristics: {},
-    })
-  }
+    });
+  };
 
   const _isMounted = useRef(true);
 
   useEffect(() => {
     return () => {
       _isMounted.current = false;
-    }
+    };
   }, []);
 
   const onClickInputChange = () => {
@@ -70,7 +80,7 @@ const MakeReviewForm = () => {
       data: data,
     })
       .then((response) => {
-        if(_isMounted.current) {
+        if (_isMounted.current) {
           console.log(response.status);
           resetRating();
           resetSummary();
@@ -126,7 +136,7 @@ const MakeReviewForm = () => {
         <input
           type="checkbox"
           name="reccomend"
-          checked='checked'
+          checked="checked"
           {...bindReccomend}
         />
       </label>
@@ -168,7 +178,11 @@ const MakeReviewForm = () => {
         Characteristics:
         <br />
         <br />
-        <input type="text" name="characteristics{}{}" {...bindCharacteristics} />
+        <input
+          type="text"
+          name="characteristics{}{}"
+          {...bindCharacteristics}
+        />
         <br />
       </label>
       <br />
@@ -184,19 +198,18 @@ const MakeReviewForm = () => {
 
 export default MakeReviewForm;
 
-  // const [isOpen, setIsOpen] = useState(false);
-  // return (
-  //   <>
-  //     <div style={ ButtonWrapper } onClick={() => console.log('clicked')} >
-  //       <button onClick={() => setIsOpen(true)}> Write A Review </button>
-  //       <ReviewModal open={isOpen} closeModal={ () => setIsOpen(false) }>
-  //         Fancy Modal
-  //       </ReviewModal>
-  //     </div>
-  //     <div style={ ContentStyles }>Content</div>
-  //   </>
-  // )
-
+// const [isOpen, setIsOpen] = useState(false);
+// return (
+//   <>
+//     <div style={ ButtonWrapper } onClick={() => console.log('clicked')} >
+//       <button onClick={() => setIsOpen(true)}> Write A Review </button>
+//       <ReviewModal open={isOpen} closeModal={ () => setIsOpen(false) }>
+//         Fancy Modal
+//       </ReviewModal>
+//     </div>
+//     <div style={ ContentStyles }>Content</div>
+//   </>
+// )
 
 // var axios = require('axios');
 // var data = JSON.stringify({

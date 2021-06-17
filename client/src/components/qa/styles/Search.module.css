@@ -1,0 +1,9 @@
+.searchBar {
+  width: auto;
+  margin-top: var(--l-white-space);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: gray;
+  font-size: 14px;
+}
