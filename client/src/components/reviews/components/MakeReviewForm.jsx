@@ -185,7 +185,6 @@ const MakeReviewForm = () => {
 export default MakeReviewForm;
 
   // const [isOpen, setIsOpen] = useState(false);
-
   // return (
   //   <>
   //     <div style={ ButtonWrapper } onClick={() => console.log('clicked')} >
@@ -194,7 +193,6 @@ export default MakeReviewForm;
   //         Fancy Modal
   //       </ReviewModal>
   //     </div>
-
   //     <div style={ ContentStyles }>Content</div>
   //   </>
   // )

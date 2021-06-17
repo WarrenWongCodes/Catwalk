@@ -19,13 +19,13 @@ const ReviewsList = () => {
 
   const handleClick = () => {
     setList(true);
-  }
+  };
 
   const addTwo = () => {
     console.log('addTwoList: ', reviews);
-    setCount(count + 2)
+    setCount(count + 2);
 
-  }
+  };
 
   const reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {

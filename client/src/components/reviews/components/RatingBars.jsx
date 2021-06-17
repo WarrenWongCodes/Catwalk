@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { MetaContext } from '../../../store.jsx';
 import styles from '../styles/RatingsBars.module.css';
 
-
-
 const { center, column } = styles;
 
 const RatingBars = () => {

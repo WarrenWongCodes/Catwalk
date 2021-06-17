@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { MetaContext } from '../../../store.jsx';
 import '../styles/reviews.css';
 
-
 let results = {};
 
 const Recommend = () => {

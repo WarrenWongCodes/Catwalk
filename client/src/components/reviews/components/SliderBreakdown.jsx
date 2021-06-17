@@ -80,7 +80,7 @@ const SliderBreakdown = () => {
     return (
       <div key={ index } >
         <div className={ spacer }>
-        <div>{ char[0] }</div>
+          <div>{ char[0] }</div>
           <div className={ slideContainer }>
             <input
               type="range"
