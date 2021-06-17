@@ -1,20 +1,32 @@
-import React, { useContext } from "react";
-import { ProductContext, StylesContext } from "../../store.jsx";
+import React, { useContext, useState, useEffect } from "react";
+import { StylesContext } from "../../store.jsx";
 import Gallery from "./components/Gallery/Gallery";
 import Information from "./components/Information/Information";
+import Details from "./components/Details/Details.jsx";
 import styles from "./overview.module.css";
-const { overview } = styles;
+import { OverviewContext, initialState } from "./overviewContext.jsx";
+const { overview, combined } = styles;
 
 export default function Overview() {
-  const product = useContext(ProductContext);
-  const styles = useContext(StylesContext);
-
-  // console.log("Overview Context from component", product.name);
+  const styleContext = useContext(StylesContext);
+  const [currentStyle, setCurrentStyle] = useState({});
+  useEffect(() => {
+    if (styleContext.length !== 0) {
+      setCurrentStyle(styleContext[0]);
+    }
+  }, [styleContext]);
 
   return (
-    <div className={`container ${overview}`}>
-      <Gallery />
-      <Information />
-    </div>
+    <OverviewContext.Provider value={{ currentStyle, setCurrentStyle }}>
+      <div className={`container ${combined}`}>
+        <div className={overview}>
+          <Gallery />
+          <Information />
+        </div>
+        <div>
+          <Details />
+        </div>
+      </div>
+    </OverviewContext.Provider>
   );
 }

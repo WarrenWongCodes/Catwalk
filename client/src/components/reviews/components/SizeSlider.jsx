@@ -3,9 +3,9 @@ import { MetaContext } from "../../../store.jsx";
 
 const SizeSlider = () => {
   const meta = useContext(MetaContext);
-  // console.log("meta: ", meta);
+  // console.log('meta: ', meta);
   if (meta.characteristics !== undefined) {
-    // console.log("metaChar", meta.characteristics);
+    // console.log('metaChar', meta.characteristics);
   }
 
   return (
