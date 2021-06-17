@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Card, Icon, Image, Rating } from "semantic-ui-react";
-import "../styles/style.css";
+import React, { useState, useEffect, useContext } from "react";
+import { IdContext, setId } from "../../../store.jsx";
+import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
+// import Store from "../../../store.jsx";
+
+import StarRating from "../../reviews/components/StarRatings.jsx";
+import starStyle from "../../../styles/global/star.css";
+
+// console.log(star);
 
 export default function CardComponent({ product }) {
+  const id = useContext(IdContext);
   const [relatedImage, setRelatedImages] = useState([
     "https://i.pinimg.com/originals/a2/dc/96/a2dc9668f2cf170fe3efeb263128b0e7.gif",
   ]);
+  const [relatedRating, setRelatedRating] = useState(0);
   const currentProductID = product.id;
 
   const options = {
@@ -31,35 +39,67 @@ export default function CardComponent({ product }) {
     return results[0].photos[0].thumbnail_url;
   };
 
+  const Rating = (props) => {
+    const ratings = props.ratings;
+    const ratingsArr = [];
+    let totalRatings = 0;
+    let display = 0;
+    if (ratings !== undefined) {
+      for (let key in ratings) {
+        ratingsArr.push(parseInt(key) * parseInt(ratings[key]));
+        totalRatings += parseInt(ratings[key]);
+      }
+      display = ratingsArr.reduce((acc, rating) => {
+        return acc + rating / totalRatings;
+      }, 0);
+    }
+    return Math.ceil(display * 4) / 4;
+  };
+
+  const handleTitleClick = () => {
+    console.log("Related Product Title Clicked!");
+    console.log(Store);
+    // Store.setId(currentProductID);
+  };
+
   if (product.id !== undefined) {
     useEffect(() => {
-      // console.log(currentProductID);
       axios
         .get(`/products/${currentProductID}/styles/?default=true`, options)
         .then((res) => {
-          // console.log("Why are we not getting here????", res.data.results);
           setRelatedImages(getDefaultImage(res.data.results));
+        });
+
+      axios
+        .get(`/reviews/meta?product_id=${currentProductID}`, options)
+        .then((res) => {
+          setRelatedRating(Rating(res.data));
         });
     }, []);
   }
 
   return (
-    <div className="card">
-      <div className="card-header">
+    <div className={Styles.card}>
+      <div className={Styles.cardHeader}>
         <img src={`${relatedImage}`} alt="rover" />
       </div>
-      <div className="card-body">
-        <span className="tag tag-teal">{`${product.category}`}</span>
-        <h4>{`${product.name}`}</h4>
+      <div className={Styles.cardBody}>
+        <span
+          className={`${Styles.tag} ${Styles.tagTeal}`}
+        >{`${product.category}`}</span>
+        <h2
+          className={Styles.title}
+          onClick={() => handleTitleClick()}
+        >{`${product.name}`}</h2>
         <p>{`${product.slogan}`}</p>
-        <div className="user">
+        <div className={Styles.user}>
           <img
             src="https://freesvg.org/img/rickvanderzwet-dollar-sign-2.png"
             alt="price-symbol"
           />
-          <div className="price-info">
-            <h5>{`${product.default_price}`}</h5>
-            <small>⭐⭐⭐⭐⭐</small>
+          <div className={Styles.priceInfo}>
+            <h3>{`${product.default_price}`}</h3>
+            <p>{`${relatedRating} out of 5`}</p>
           </div>
         </div>
       </div>

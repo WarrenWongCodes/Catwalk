@@ -58,7 +58,11 @@ export default function App(props) {
           </StylesContext.Provider>
         </ProductContext.Provider>
         <RelatedContext.Provider value={related}>
-          <Related />
+          <ProductContext.Provider value={product}>
+            <IdContext.Provider value={id}>
+              <Related />
+            </IdContext.Provider>
+          </ProductContext.Provider>
         </RelatedContext.Provider>
         <QaContext.Provider value={{ qa, id, product }}>
           <QA />
@@ -67,7 +71,7 @@ export default function App(props) {
           <MetaContext.Provider value={meta}>
             <Reviews />
           </MetaContext.Provider>
-        </ReviewsContext.Provider>
+        </ReviewsContext.Provider> */}
       </div>
     </main>
   );
