@@ -1,0 +1,32 @@
+:root {
+  --star-size: 2vh;
+  --star-color: #fff;
+  --star-background: black;
+  --star-border: solid 1px;
+}
+.star {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  /* font-family: Times; */
+  line-height: 1;
+  background-clip: text;
+}
+.star:before {
+  content: “★★★★★“;
+  letter-spacing: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
+  background-clip: text;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.starContainer {
+  display: flex;
+  align-items: center;
+}

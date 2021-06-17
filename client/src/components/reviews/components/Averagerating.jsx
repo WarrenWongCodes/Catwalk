@@ -1,13 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { MetaContext } from '../../../store.jsx';
-import { Rating, Container } from 'semantic-ui-react';
-import StarRating from './StarRatings';
-import RatingBars from './RatingBars';
-import Recommend from './Recommend';
-import SizeSlider from './SizeSlider';
+import React, { useContext, useState, useEffect } from "react";
+import { MetaContext } from "../../../store.jsx";
+import StarRating from "./StarRatings";
+import RatingBars from "./RatingBars";
+import Recommend from "./Recommend";
+import SizeSlider from "./SizeSlider";
+import SliderBreakdown from "./SliderBreakdown";
+import styles from "../styles/slider.module.css";
 
 const AveRatingDisp = (props) => {
-
   const meta = useContext(MetaContext);
   const ratings = meta.ratings;
   const [ave, setAve] = useState(0);
@@ -16,7 +16,7 @@ const AveRatingDisp = (props) => {
     const ratingsArr = [];
     let totalRatings = 0;
     let display = 0;
-    if (ratings !== undefined) {
+    if (ratings !== undefined && ratings !== null) {
       for (let key in ratings) {
         ratingsArr.push(parseInt(key) * parseInt(ratings[key]));
         totalRatings += parseInt(ratings[key]);
@@ -24,10 +24,10 @@ const AveRatingDisp = (props) => {
       display = ratingsArr.reduce((acc, rating) => {
         return acc + rating / totalRatings;
       }, 0);
-    };
+    }
     useEffect(() => {
       setAve(Math.ceil(display * 4) / 4);
-    })
+    });
     // check docs about second param for useEffect
 
     return Math.ceil(display * 4) / 4;
@@ -35,17 +35,19 @@ const AveRatingDisp = (props) => {
 
   return (
     <div>
-      <h3 className='ratingsHeadline'>RATINGS & REVIEWS</h3>
-      <div className='disp'>
-        <Ave />
-        <StarRating rating={ave}/>
+      <h3 className="ratingsHeadline">RATINGS & REVIEWS</h3>
+      <div className="disp">
+        <div>
+          <Ave />
+        </div>
+        <StarRating rating={ave} />
       </div>
       <div>
         <Recommend />
       </div>
       <RatingBars />
       <div>
-        <SizeSlider />
+        <SliderBreakdown />
       </div>
     </div>
   );

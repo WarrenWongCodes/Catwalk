@@ -1,0 +1,11 @@
+.font {
+  font-size: 15px;
+}
+
+.imageDetails {
+  margin-right: var(--m-white-space);
+    width: 75px;
+    border: solid var(--brand-color)1px;
+    max-height: 100%;
+    max-width: 100%;
+}

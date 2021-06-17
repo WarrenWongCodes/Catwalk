@@ -1,0 +1,34 @@
+.metaData {
+  font-size: 13px;
+  font-weight: 300;
+  margin-top: var(--m-white-space);
+  margin-bottom: var(--m-white-space);
+  margin-right: var(--xl-white-space);
+}
+
+.spreadContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--xl-white-space);
+}
+
+.link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: gray;
+}
+
+.seeMoreAnswers {
+  font-size: 15px;
+  margin-bottom: var(--xl-white-space);
+}
+
+.scrollQA{
+  height: 450px;
+  width: 920px;
+  overflow: auto;
+  float: left;
+  scroll-behavior: smooth;
+  position: relative;
+  margin: 25px;
+}
