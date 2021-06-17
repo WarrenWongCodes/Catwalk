@@ -15,14 +15,26 @@ export default function Questions({ question, answers, setOpen }) {
   const [isShowingHelpful, setDisplayHelpful] = useState(true);
   const [isShowingReported, setDisplayReported] = useState(true);
   const [numOfAnswers, setAnswerDisplay] = useState(2);
-
-  // TODO: add State for the class , CSS conditional render
   const [showScrollView, setScrollView] = useState(false);
 
-  // TODO: Sort the Answers by SELLER first
-  answers.sort((a, b) => {
+  let first = [];
+  let others = [];
+  for (let answer of answers) {
+    if (answer.answerer_name === "Seller") {
+      first.push(answer);
+    } else {
+      others.push(answer);
+    }
+  }
+
+  first.sort((a, b) => {
     return b.helpfulness - a.helpfulness;
   });
+  others.sort((a, b) => {
+    return b.helpfulness - a.helpfulness;
+  });
+
+  answers = first.concat(others);
 
   let aData = answers.slice(0);
   if (answers.length > 1) {
@@ -31,7 +43,7 @@ export default function Questions({ question, answers, setOpen }) {
 
   const seeMoreAnswersHandler = () => {
     if (numOfAnswers === 2) {
-      setAnswerDisplay(10); // TODO: needs to be dynamic
+      setAnswerDisplay(10);
       setScrollView(true);
     } else {
       setAnswerDisplay(2);
@@ -104,7 +116,6 @@ export default function Questions({ question, answers, setOpen }) {
           return <Answer a={a} key={i} />;
         })}
       </span>
-      {/* TODO: on click, increase the answer count by 2 and can scroll*/}
       {moreAnswers ? moreAnswers : collapseAnswers}
       <br />
     </>

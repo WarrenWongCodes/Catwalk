@@ -24,10 +24,9 @@
 }
 
 .scrollQA{
-  height: 450px;
+  height: 550px;
   width: 920px;
   overflow: auto;
-  float: left;
   scroll-behavior: smooth;
   position: relative;
   margin: 25px;
