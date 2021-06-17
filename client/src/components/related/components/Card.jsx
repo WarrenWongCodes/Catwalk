@@ -3,7 +3,7 @@ import { IdContext, setId } from "../../../store.jsx";
 import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
-import Store from "/store.jsx";
+// import Store from "../../../store.jsx";
 
 import StarRating from "../../reviews/components/StarRatings.jsx";
 import starStyle from "../../../styles/global/star.css";

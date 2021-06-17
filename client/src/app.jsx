@@ -51,12 +51,12 @@ export default function App(props) {
   return (
     <main>
       <div>
-        {/* <Navbar />
+        <Navbar />
         <ProductContext.Provider value={product}>
           <StylesContext.Provider value={styles}>
             <Overview />
           </StylesContext.Provider>
-        </ProductContext.Provider> */}
+        </ProductContext.Provider>
         <RelatedContext.Provider value={related}>
           <ProductContext.Provider value={product}>
             <IdContext.Provider value={id}>
@@ -64,7 +64,7 @@ export default function App(props) {
             </IdContext.Provider>
           </ProductContext.Provider>
         </RelatedContext.Provider>
-        {/* <QaContext.Provider value={qa}>
+        <QaContext.Provider value={{ qa, id, product }}>
           <QA />
         </QaContext.Provider>
         <ReviewsContext.Provider value={reviews}>
