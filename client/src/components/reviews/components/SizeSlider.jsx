@@ -1,26 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MetaContext } from "../../../store.jsx";
+import styles from "../styles/slider.module.css";
+
+const { spacer, slideContainer, slider, labelRow } = styles;
 
 const SizeSlider = () => {
-  const meta = useContext(MetaContext);
-  // console.log('meta: ', meta);
-  if (meta.characteristics !== undefined) {
-    // console.log('metaChar', meta.characteristics);
-  }
+  const [size, setSize] = useState(0);
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setSize(e.target.value);
+  };
 
   return (
-    <>
-      <div className="spacer">
-        <div>size slider</div>
-        <div className="spacer"></div>
+    <div>
+      <div className={spacer}>
+        <div className={slideContainer}>
+          <input
+            type="range"
+            min={1}
+            max={5}
+            step={1}
+            default={3}
+            className={slider}
+            onChange={(e) => console.log(handleChange)}
+            onMouseUp={handleChange}
+          />
+        </div>
+        <div className={labelRow}>
+          <div>small</div>
+          <div>perfect</div>
+          <div>large</div>
+        </div>
+        <div className={spacer}></div>
       </div>
-      <div className="sliderContainer">
-        <div className="small slideBackground">small</div>
-        <div className="perfect slideBackground">perfect</div>
-        <div className="large slideBackground">large</div>
-        <div className="slideBackground"></div>
-      </div>
-    </>
+    </div>
   );
 };
 
