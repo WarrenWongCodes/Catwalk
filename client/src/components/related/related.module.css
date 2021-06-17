@@ -25,12 +25,15 @@ body {
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 90%,rgba(0, 0, 0, 0.2) 100%);
 }
 
+.hideOverflow {
+  overflow: hidden;
+}
 .cardsContainer {
   display: flex;
   width: 100%;
   /* padding-left: 40px; */
   /* justify-content: space-evenly; */
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   /* -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow:-moz-hidden-scrollable; */

@@ -29,8 +29,8 @@ export default function AddQuestionForm() {
     } else if (name.length < 1) {
       alert("You must enter a name");
       return;
-    } else if (!email.includes("@")) {
-      alert("You must enter a valid email address");
+    } else if (!email.includes("@") && !email.includes(".com")) {
+      alert("You must enter a valid email address Ex: joe123@gmail.com");
       return;
     }
 
@@ -79,11 +79,16 @@ export default function AddQuestionForm() {
         </label>
         <br />
         <label className={fontSize}>
+          <br />
           Your Email*:
           <br />
-          <input type="text" name="email" {...bindEmail} />
+          <input
+            placeholder="For authentication reasons, you will not be emailed"
+            type="text"
+            name="email"
+            {...bindEmail}
+          />
           <br />
-          For authentication reasons, you will not be emailed
         </label>
         <br />
         <br />

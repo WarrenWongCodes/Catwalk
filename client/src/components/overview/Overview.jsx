@@ -5,7 +5,7 @@ import Information from "./components/Information/Information";
 import Details from "./components/Details/Details.jsx";
 import styles from "./overview.module.css";
 import { OverviewContext, initialState } from "./overviewContext.jsx";
-const { overview, combined } = styles;
+const { overview } = styles;
 
 export default function Overview() {
   const styleContext = useContext(StylesContext);
@@ -18,7 +18,7 @@ export default function Overview() {
 
   return (
     <OverviewContext.Provider value={{ currentStyle, setCurrentStyle }}>
-      <div className={`container ${combined}`}>
+      <div className={`container`}>
         <div className={overview}>
           <Gallery />
           <Information />

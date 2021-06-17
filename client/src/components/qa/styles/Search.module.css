@@ -1,6 +1,7 @@
 .searchBar {
   width: auto;
   margin-top: var(--l-white-space);
+  height: 35px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

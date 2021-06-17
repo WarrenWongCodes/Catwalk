@@ -16,26 +16,25 @@ export default function Related() {
   };
 
   return (
-    <>
-      <div className={`container ${Styles.hideOverflow}`}>
-        <h2>Related Products</h2>
-        <br></br>
-        <div className={`${Styles.backgroundOverlay} ${Styles.cardsContainer}`}>
-          {related.map((item, i) => {
-            return <CardComponent key={i} product={item.data} />;
-          })}
-        </div>
-        <br></br>
-        <h2>Outfit</h2>
-        <br></br>
-        <div
-          className={Styles.cardsContainer}
-          onClick={() => handleOutfitClick()}
-        >
-          <AddOutfitCard product={product} />
-          {outfits}
-        </div>
+    <div className={`container ${Styles.hideOverflow}`}>
+      <h2>Related Products</h2>
+      <br></br>
+      <div className={`${Styles.backgroundOverlay} ${Styles.cardsContainer}`}>
+        {related.map((item, i) => {
+          return <CardComponent key={i} product={item.data} />;
+        })}
       </div>
-    </>
+      <br></br>
+      <h2>Outfit</h2>
+      <br></br>
+      <h2>Outfit</h2>
+      <div
+        className={Styles.cardsContainer}
+        onClick={() => handleOutfitClick()}
+      >
+        <AddOutfitCard product={product} />
+        {outfits}
+      </div>
+    </div>
   );
 }

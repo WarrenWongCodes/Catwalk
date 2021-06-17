@@ -23,7 +23,7 @@ export default function AddAnswerForm({ question }) {
       photos: [photo],
     });
 
-    console.log(data.photos);
+    // console.log(data.photos);
 
     if (body.length < 1) {
       alert("You must enter a question");
@@ -31,10 +31,10 @@ export default function AddAnswerForm({ question }) {
     } else if (name.length < 1) {
       alert("You must enter a name");
       return;
-    } else if (!email.includes("@")) {
-      alert("You must enter a valid email address");
+    } else if (!email.includes("@") && !email.includes(".com")) {
+      alert("You must enter a valid email address Ex: joe123@gmail.com");
       return;
-    } else if (!photo.includes("http")) {
+    } else if (photo.length > 1 && !photo.includes("http")) {
       alert("You must enter a valid image link");
       return;
     }
@@ -85,13 +85,17 @@ export default function AddAnswerForm({ question }) {
         </label>
         <br />
         <label className={fontSize}>
+          <br />
           Your Email*:
           <br />
-          <input type="text" name="email" {...bindEmail} />
+          <input
+            placeholder="For authentication reasons, you will not be emailed"
+            type="text"
+            name="email"
+            {...bindEmail}
+          />
           <br />
-          For authentication reasons, you will not be emailed
         </label>
-        <br />
         <br />
         <label className={fontSize}>
           Upload your photos:
