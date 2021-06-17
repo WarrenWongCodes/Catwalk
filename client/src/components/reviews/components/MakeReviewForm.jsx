@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import {createPortal } from 'react-dom';
 import axios from 'axios';
+
 import PostReview from '../api/PostReview';
 import { useInput } from "../utils/formInputHook.jsx";
 import ReviewModal from './ReviewModal';
@@ -32,6 +33,15 @@ const MakeReviewForm = () => {
   //   characteristics: {},
   // })
 
+
+    // axios(config)
+    // .then(function (response) {
+    //   console.log(JSON.stringify(response.data));
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });s
+
   const addAReviewHandler = (e) => {
     e.preventDefault();
     let data = JSON.stringify({
@@ -55,27 +65,27 @@ const MakeReviewForm = () => {
     }
   }, []);
 
-  // const onClickInputChange = () => {
-  //   const response = PostReview.post("/reviews/", {
-  //     data: data,
-  //   })
-  //     .then((response) => {
-  //       if(_isMounted.current) {
-  //         console.log(response.status);
-  //         resetRating();
-  //         resetSummary();
-  //         resetBody();
-  //         resetRecommend();
-  //         resetName();
-  //         resetEmail();
-  //         resetPhotos();
-  //         resetCharacteristics();
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const onClickInputChange = () => {
+    const response = PostReview.post("/reviews", {
+      data: data,
+    })
+      .then((response) => {
+        if(_isMounted.current) {
+          console.log(response.status);
+          resetRating();
+          resetSummary();
+          resetBody();
+          resetRecommend();
+          resetName();
+          resetEmail();
+          resetPhotos();
+          resetCharacteristics();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <form>
@@ -164,7 +174,7 @@ const MakeReviewForm = () => {
       <br />
       <br />
       <input
-        onClick={(e) => addAQuestionHandler(e)}
+        onClick={(e) => addAReviewHandler(e)}
         type="submit"
         value="Submit"
       />

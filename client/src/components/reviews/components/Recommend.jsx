@@ -25,7 +25,7 @@ const Recommend = () => {
   } else {
     return (
       <>
-        <div>{percentageRecommended}% of reviews reccomend this product</div>
+        <div>{percentageRecommended}% of reviews recomend this product</div>
       </>
     );
   }

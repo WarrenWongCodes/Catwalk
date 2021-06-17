@@ -9,12 +9,9 @@ import CallMoreReviews from '../api/CallMoreReviews';
 const MoreReviews = (props) => {
 
   const [reviews, setReviews] = useState([]);
-  const _isMounted = useRef(true);
-
+  // const _isMounted = useRef(true);
   useEffect(() => {
-    return () => {
-      _isMounted.current = false;
-    }
+    // _isMounted.current = false;
   }, []);
 
   const onClickInputChange = () => {
@@ -25,11 +22,7 @@ const MoreReviews = (props) => {
       }
     })
       .then((response) => {
-        if(_isMounted.current) {
-          setReviews(response.data.results);
-          history.push()
-        }
-
+         setReviews(response.data.results);
       })
       .catch((err) => {
         console.log(err);

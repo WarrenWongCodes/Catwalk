@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { MetaContext } from '../../../store.jsx';
-import '../styles/reviews.css';
+import styles from '../styles/RatingsBars.module.css';
+
+
+
+const { center, column } = styles;
 
 const RatingBars = () => {
   const meta = useContext(MetaContext);
@@ -15,17 +19,14 @@ const RatingBars = () => {
 
     return (
       <>
-        {/* <div className='row'> */}
-
-          <div className='leftSide'>
-            <div>{props.star} Stars</div>
+        <div className='leftSide'>
+          <div>{props.star} Stars</div>
+        </div>
+        <div className={center}>
+          <div className='barContainer'>
+            <div className='bar' style={{...style}}></div>
           </div>
-          <div className='center'>
-            <div className='barContainer'>
-              <div className='bar' style={{...style}}></div>
-            </div>
-          </div>
-        {/* </div> */}
+        </div>
       </>
     )
   }
@@ -54,7 +55,7 @@ const RatingBars = () => {
   return (
     <>
        <div></div>
-       <div>
+       <div className={column}>
          {RatingsList}
        </div>
     </>

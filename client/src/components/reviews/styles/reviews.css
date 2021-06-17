@@ -87,6 +87,7 @@
   background-color: rgb(21, 99, 21);
 }
 
+/*
 .sliderContainer {
   display: flex;
   margin-bottom: 20px;
@@ -97,7 +98,7 @@
   width: 100%;
   background-color: white;
   text-align: center;
-  /* color: white; */
+
 }
 
 .small {
@@ -126,3 +127,4 @@
 .spacer {
   margin: 10px 0 10px 0;
 }
+  */
