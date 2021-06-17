@@ -1,0 +1,33 @@
+.mainContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.reviewRow {
+  display: flex;
+}
+
+.displayContainer {
+  flex-grow: 1;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.reviewContainer {
+  /* float: right; */
+  /* flex: 1; */
+  /* flex-grow: 1; */
+
+  /* display: flex; */
+  margin-left: 10px;
+  /* height: 100%; */
+  /* float: right; */
+  width: 100%;
+  /* margin: auto; */
+  /* padding: 0; */
+}

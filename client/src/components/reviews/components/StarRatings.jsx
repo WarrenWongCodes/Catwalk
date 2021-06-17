@@ -1,5 +1,6 @@
-import React from "react";
-import star from "../../../styles/global/star.css";
+import React from 'react';
+import '../styles/reviews.css';
+import star from "../../../styles/global/star.css"
 
 const StarRating = (props) => {
   // console.log("Props from StarRating", props);
@@ -9,9 +10,8 @@ const StarRating = (props) => {
   };
 
   return (
-    <div className="starContainer">
-      <div className="star" style={rating}>
-        ★★★★★
+    <div className='starContainer' >
+      <div className='star' style={{ ...rating }}>
       </div>
     </div>
   );

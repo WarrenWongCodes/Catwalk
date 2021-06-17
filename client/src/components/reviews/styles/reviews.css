@@ -1,17 +1,9 @@
-/*
-
-/* .star-rating {
+.star-rating {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-
-input[type="radio"] {
-  display: none;
-} */
-
-/*
 
 :root {
   --star-size: 2vh;
@@ -21,13 +13,14 @@ input[type="radio"] {
 }
 
 .star {
-  --percent: calc(var(--rating) / 5 * 100%);
+  --percent: calc((var(--rating) + 0.05) / 5 * 100%);
 
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
   background-clip: text;
+  padding: 0px;
 }
 
 .star:before {
@@ -40,12 +33,14 @@ input[type="radio"] {
   );
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .starContainer {
   display: flex;
+  padding: 0px;
   align-items: center;
 }
 
@@ -59,28 +54,28 @@ input[type="radio"] {
 
 /* RatingBars */
 
-/*
 .leftSide {
   flex: 20%;
-  float: left;
-  width: 70%;
+  /* float: left; */
+  width: 100%;
   margin-top: 10px;
 }
-/*
+
 .center {
   flex: 80%;
-  width: 70%;
+  width: 100%;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 50px;
 }
 
-.row {
+/* .row {
   display: flex;
-}
+} */
 
 .barContainer {
-  width: 50%;
+  display: flex;
+  /* width: 100%; */
   background-color: #f1f1f1;
   text-align: center;
   color: white;
@@ -92,6 +87,7 @@ input[type="radio"] {
   background-color: rgb(21, 99, 21);
 }
 
+/*
 .sliderContainer {
   display: flex;
   margin-bottom: 20px;
@@ -102,7 +98,7 @@ input[type="radio"] {
   width: 100%;
   background-color: white;
   text-align: center;
-  color: white;
+
 }
 
 .small {
@@ -131,5 +127,4 @@ input[type="radio"] {
 .spacer {
   margin: 10px 0 10px 0;
 }
-
- */
+  */
