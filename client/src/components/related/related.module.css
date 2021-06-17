@@ -16,10 +16,13 @@ body {
   width: 1040px;
   /* padding-left: 40px; */
   /* justify-content: space-evenly; */
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-
+  overflow: scroll;
+}
+.hideOverflow {
+  overflow: hidden;
 }
 .card {
   margin: 10px;

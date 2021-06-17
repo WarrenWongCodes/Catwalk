@@ -15,7 +15,7 @@ export default function Related() {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${Styles.hideOverflow}`}>
       <h2>Related Products</h2>
       <div className={Styles.cardsContainer}>
         {related.map((item, i) => {
