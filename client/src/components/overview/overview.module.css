@@ -6,7 +6,7 @@
 .overview {
   display: flex;
   flex-direction: row;
-  min-height: 90vh;
+  min-height: 80vh;
   padding-top: 100px;
   width: 100%;
 }
@@ -19,7 +19,6 @@
 .infoContainer {
   padding: var(--xl-white-space);
   width: 38%;
-  border: 2px solid var(--border-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

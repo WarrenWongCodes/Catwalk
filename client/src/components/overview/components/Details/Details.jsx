@@ -25,7 +25,6 @@ const Details = () => {
   const product = useContext(ProductContext);
   const styles = useContext(OverviewContext);
   const { currentStyle } = useContext(OverviewContext);
-  console.log(currentStyle);
   const { features = [] } = product;
   return (
     <div className={detailsContainer}>

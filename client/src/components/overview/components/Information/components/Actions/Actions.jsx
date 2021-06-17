@@ -3,32 +3,36 @@ import { OverviewContext } from "../../../../overviewContext.jsx";
 import styles from "./actions.module.css";
 import { IoIosStarOutline as Star } from "react-icons/io";
 import { IoIosAdd as Add } from "react-icons/io";
+
 const {
   actionsContainer,
   actionsContainer2,
   sizeContainer,
   quantityContainer,
-  size,
-  quantity,
+  sizeStyle,
+  quantityStyle,
   addToBagContainer,
   favoriteContainer,
   bag,
   fav,
   icon,
+  spaceContainer,
 } = styles;
 
 const Actions = ({ styles }) => {
   const { currentStyle } = useContext(OverviewContext);
   const [selectedSize, setSelectedSize] = useState(undefined);
-  // console.log(selectedSize);
   return (
-    <div>
+    <div className={spaceContainer}>
       <div className={actionsContainer}>
         <SizeButton
           size={currentStyle.skus}
-          sizeState={{ selectedSize, setSelectedSize }}
+          setSelectedSize={setSelectedSize}
         />
-        <QuantityButton quantity={currentStyle.skus} />
+        <QuantityButton
+          quantity={currentStyle.skus}
+          selectedSize={selectedSize}
+        />
       </div>
       <div className={actionsContainer2}>
         <AddToBag />
@@ -38,31 +42,69 @@ const Actions = ({ styles }) => {
   );
 };
 
-const onChange = (e) => {
-  console.log(e);
-};
-
 const SizeButton = ({ size = {}, setSelectedSize }) => {
+  const onChange = (e) => {
+    setSelectedSize(e.target.value);
+  };
   return (
     <div className={sizeContainer}>
-      <select className={`textButton ${size}`}>
+      <select className={`textButton ${sizeStyle}`} onChange={onChange}>
         <option defaultValue>SELECT SIZE</option>
         {Object.entries(size).map(([key, value]) => {
-          return <option key={key}>{value.size}</option>;
+          return (
+            <option key={key} value={value.quantity}>
+              {value.size}
+            </option>
+          );
         })}
       </select>
     </div>
   );
 };
 
-const QuantityButton = ({ quantity }) => {
-  return (
-    <div className={quantityContainer}>
-      <select className={`textButton ${quantity}`}>
-        <option defaultValue>1</option>
-      </select>
-    </div>
-  );
+const createArray = (num) => {
+  var result = [];
+  for (var i = 1; i <= num; i++) {
+    result.push(i);
+  }
+  return result;
+};
+
+const QuantityButton = ({ quantity = {}, selectedSize }) => {
+  if (selectedSize) {
+    var quantities = createArray(selectedSize);
+    return (
+      <div className={quantityContainer}>
+        <select className={`textButton ${quantityStyle}`}>
+          {quantities.map((value, i) => {
+            if (value <= 15) {
+              return <option key={i}>{value}</option>;
+            }
+          })}
+        </select>
+      </div>
+    );
+  } else if (selectedSize === 0) {
+    return (
+      <div className={quantityContainer}>
+        <select className={`textButton ${quantityStyle}`}>
+          <option disabled defaultValue>
+            Out of Stock
+          </option>
+        </select>
+      </div>
+    );
+  } else {
+    return (
+      <div className={quantityContainer}>
+        <select className={`textButton ${quantityStyle}`}>
+          <option disabled defaultValue>
+            Please select size
+          </option>
+        </select>
+      </div>
+    );
+  }
 };
 
 const AddToBag = () => (
