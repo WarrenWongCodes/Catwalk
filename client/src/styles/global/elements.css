@@ -6,6 +6,10 @@ body {
   font-size: var(--m-font);
 }
 
+#app {
+  width: 100%;
+}
+
 h1 {
   font: var(--xl-font);
   line-height: var(--xl-line-height);

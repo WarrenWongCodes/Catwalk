@@ -7,31 +7,55 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #f7f8fc;
+  /* background-color: #f7f8fc;
   font-family: "Roboto", sans-serif;
-  color: #10182f;
+  color: #10182f; */
 }
+
+.title {
+  font: var(--m-font);
+  cursor: pointer;
+}
+
+.description {
+  font: var(--s-font);
+}
+
+.backgroundOverlay {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 90%,rgba(0, 0, 0, 0.2) 100%);
+}
+
 .cardsContainer {
   display: flex;
-  width: 1040px;
+  width: 100%;
   /* padding-left: 40px; */
   /* justify-content: space-evenly; */
   flex-wrap:nowrap;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-
+  /* -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow:-moz-hidden-scrollable; */
+  overflow-x: scroll;
 }
+
+.cardsContainer::-webkit-scrollbar {
+  display: none;}
+
+.hideOverflow {
+  overflow:hidden;
+}
+
 .card {
   margin: 10px;
   background-color: #fff;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  flex: 0 0 25%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  overflow:visible;
+  flex: 0 0 20%;
   width: 150px;
 }
+
 .cardHeader img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
 }
 .cardBody {
@@ -45,7 +69,7 @@ body {
 
 .tag {
   background: #cccccc;
-  font-size: 12px;
+  font-size: 0.775rem;
   margin: 0 0 20px;
   color: #fff;
   padding: 5px 10px;
@@ -68,12 +92,12 @@ body {
   margin-top: auto;
 }
 
-.user img {
+/* .user img {
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
-}
+} */
 .user-Info h5 {
   margin: 0;
 }

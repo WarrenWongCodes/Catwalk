@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { IdContext, setId } from "../../../store.jsx";
+import { IdContext } from "../../../store.jsx";
 import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
-// import Store from "../../../store.jsx";
+// import { setId } from "../../../store.jsx";
+
+// console.log(setId);
 
 import StarRating from "../../reviews/components/StarRatings.jsx";
 import starStyle from "../../../styles/global/star.css";
@@ -59,7 +61,7 @@ export default function CardComponent({ product }) {
   const handleTitleClick = () => {
     console.log("Related Product Title Clicked!");
     console.log(Store);
-    // Store.setId(currentProductID);
+    // setId(currentProductID);
   };
 
   if (product.id !== undefined) {
@@ -91,15 +93,16 @@ export default function CardComponent({ product }) {
           className={Styles.title}
           onClick={() => handleTitleClick()}
         >{`${product.name}`}</h2>
-        <p>{`${product.slogan}`}</p>
+        <p className={Styles.description}>{`${product.slogan}`}</p>
         <div className={Styles.user}>
-          <img
+          {/* <img
             src="https://freesvg.org/img/rickvanderzwet-dollar-sign-2.png"
             alt="price-symbol"
-          />
+          /> */}
           <div className={Styles.priceInfo}>
-            <h3>{`${product.default_price}`}</h3>
-            <p>{`${relatedRating} out of 5`}</p>
+            <p>{`$ ${product.default_price}`}</p>
+            {/* <p>{`${relatedRating} out of 5`}</p> */}
+            <p>★★★☆☆</p>
           </div>
         </div>
       </div>
