@@ -8,11 +8,14 @@ export default function AddOutfitCard({ product }) {
     <div className={Styles.card}>
       <div className={Styles.cardHeader}>
         <img
-          src="https://cdn0.iconfinder.com/data/icons/very-basic-2-android-l-lollipop-icon-pack/24/plus-512.png"
+          src="https://lh3.googleusercontent.com/proxy/ElHbl9HhIOOAyo4xnbxqfKdLyv7ec213pjqUsv5fsg5RAUPjzRUVRNlkwTAPGYCXAJ4usGqU3mes-WmuDzC-4DSaf1_aBduWHH5vZ9v_bi9t"
           alt="addOutfit"
         />
       </div>
       <div className={Styles.cardBody}>
+        <br></br>
+        <br></br>
+        <br></br>
         <h2
           style={{ textAlignVertical: "center", textAlign: "center" }}
           className={Styles.title}

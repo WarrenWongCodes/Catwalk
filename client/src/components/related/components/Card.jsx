@@ -3,6 +3,7 @@ import { IdContext } from "../../../store.jsx";
 import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
+import { FaStar, FaRegStar } from "react-icons/fa";
 // import { setId } from "../../../store.jsx";
 
 // console.log(setId);
@@ -84,6 +85,11 @@ export default function CardComponent({ product }) {
     <div className={Styles.card}>
       <div className={Styles.cardHeader}>
         <img src={`${relatedImage}`} alt="rover" />
+        {/* <div className={Styles.iconOverlay}>
+          <a className={Styles.icon} title="User Profile">
+            <p>Hello</p>
+          </a>
+        </div> */}
       </div>
       <div className={Styles.cardBody}>
         <span
