@@ -71,7 +71,7 @@ export default function App(props) {
           <MetaContext.Provider value={meta}>
             <Reviews />
           </MetaContext.Provider>
-        </ReviewsContext.Provider> */}
+        </ReviewsContext.Provider>
       </div>
     </main>
   );
