@@ -1,8 +1,21 @@
 .descriptionContainer {
   margin-bottom: var(--xl-white-space);
-  margin-top: var(--l-white-space);
 }
 
 .cat {
   font-size: 0.875rem;
+}
+
+.reviews {
+  font-size: 9px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sale {
+  color: red;
+}
+
+.productDescription {
+  margin-top: var(--l-white-space);
 }

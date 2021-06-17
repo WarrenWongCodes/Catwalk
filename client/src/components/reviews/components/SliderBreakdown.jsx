@@ -7,7 +7,7 @@ const { spacer, slideContainer, slider, labelRow } = styles;
 
 const SliderBreakdown = () => {
   const meta = useContext(MetaContext);
-  // console.log("meta: ", meta.characteristics);
+  // console.log('meta: ', meta.characteristics);
 
   const [value, setvalue] = useState(0);
 
@@ -64,11 +64,11 @@ const SliderBreakdown = () => {
   if (metaVals !== undefined) {
     vals = Object.entries(metaVals);
     const characteristics = Object.entries(metaVals);
-    // console.log("vals: ", vals);
-    // console.log("metaId: ", meta.product_id);
+    // console.log('vals: ', vals);
+    // console.log('metaId: ', meta.product_id);
     const key = meta.product_id;
-    // console.log(key);
-    // console.log("key: ", key);
+    // console.log(key)
+    // console.log('key: ', key);
   }
   const slides = vals.map((char, index) => {
     const value = Math.round(char[1].value);

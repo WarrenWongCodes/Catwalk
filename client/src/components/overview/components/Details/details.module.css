@@ -17,7 +17,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 30%;
   padding: var(--l-white-space);
 }
@@ -31,6 +31,7 @@
   display: flex;
   align-items: center;
   font: var(--s-font);
+  margin-bottom: var(--m-white-space);
 }
 
 .icons {

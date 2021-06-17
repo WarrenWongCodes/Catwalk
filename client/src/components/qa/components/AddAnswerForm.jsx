@@ -23,6 +23,8 @@ export default function AddAnswerForm({ question }) {
       photos: [photo],
     });
 
+    // console.log(data.photos);
+
     if (body.length < 1) {
       alert("You must enter a question");
       return;

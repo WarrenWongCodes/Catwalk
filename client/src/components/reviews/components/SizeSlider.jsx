@@ -8,7 +8,7 @@ const SizeSlider = () => {
   const [size, setSize] = useState(0);
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSize(e.target.value);
   };
 
