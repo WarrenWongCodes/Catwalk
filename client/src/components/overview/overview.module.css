@@ -1,16 +1,35 @@
+/* .combined {
+  display: flex;
+  flex-direction: column;
+} */
+
 .overview {
   display: flex;
   flex-direction: row;
-  height: 200vh;
+  min-height: 85vh;
+  max-height: 85vh;
   padding-top: 100px;
+  width: 100%;
 }
 
 .galleryContainer {
-  width: 67%;
-  background-color: rgb(168, 168, 168);
+  width: 62%;
+  background-color: var(--border-color);
+  position: relative;
 }
 
 .infoContainer {
-  width: 33%;
-  background-color: var(--brand-color);
+  padding: var(--xl-white-space);
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  padding: var(--xl-white-space);
 }
