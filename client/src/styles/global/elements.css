@@ -28,4 +28,5 @@ p {
   padding: var(--l-white-space);
   color: var(--font-color);
   background-color: var(--bg-color);
+  cursor: pointer;
 }

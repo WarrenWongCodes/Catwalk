@@ -49,7 +49,7 @@ const SizeButton = ({ size = {}, setSelectedSize }) => {
   return (
     <div className={sizeContainer}>
       <select className={`textButton ${sizeStyle}`} onChange={onChange}>
-        <option defaultValue>SELECT SIZE</option>
+        <option value={true}>SELECT SIZE</option>
         {Object.entries(size).map(([key, value]) => {
           return (
             <option key={key} value={value.quantity}>
@@ -99,7 +99,7 @@ const QuantityButton = ({ quantity = {}, selectedSize }) => {
       <div className={quantityContainer}>
         <select className={`textButton ${quantityStyle}`}>
           <option disabled defaultValue>
-            Please select size
+            -
           </option>
         </select>
       </div>
@@ -107,9 +107,13 @@ const QuantityButton = ({ quantity = {}, selectedSize }) => {
   }
 };
 
+const onAdd = () => {
+  window.alert("Added To Bag");
+};
+
 const AddToBag = () => (
   <div className={addToBagContainer}>
-    <button className={`textButton ${bag}`}>
+    <button className={`textButton ${bag}`} onClick={() => onAdd()}>
       ADD TO BAG
       <Add className={icon} />
     </button>

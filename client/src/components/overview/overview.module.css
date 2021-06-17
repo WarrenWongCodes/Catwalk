@@ -6,7 +6,8 @@
 .overview {
   display: flex;
   flex-direction: row;
-  min-height: 80vh;
+  min-height: 85vh;
+  max-height: 85vh;
   padding-top: 100px;
   width: 100%;
 }
@@ -14,6 +15,7 @@
 .galleryContainer {
   width: 62%;
   background-color: var(--border-color);
+  position: relative;
 }
 
 .infoContainer {

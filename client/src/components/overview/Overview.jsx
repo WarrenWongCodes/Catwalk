@@ -15,6 +15,7 @@ export default function Overview() {
       setCurrentStyle(styleContext[0]);
     }
   }, [styleContext]);
+
   return (
     <OverviewContext.Provider value={{ currentStyle, setCurrentStyle }}>
       <div className={`container ${combined}`}>
