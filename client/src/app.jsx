@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo } from "react";
 
 import Overview from "./components/overview/Overview.jsx";
-// import Related from "./components/related/Related.jsx";
-// import Reviews from "./components/reviews/Reviews.jsx";
-// import QA from "./components/qa/QA.jsx";
-// import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
+import Related from "./components/related/Related.jsx";
+import Reviews from "./components/reviews/Reviews.jsx";
+import QA from "./components/qa/QA.jsx";
+import ReviewsList from "./components/reviews/components/ReviewsList.jsx";
 import Navbar from "./components/common/Navbar/Navbar.jsx";
 
 import {
@@ -12,12 +12,12 @@ import {
   IdContext,
   ProductContext,
   StylesContext,
-  // RelatedContext,
-  // ReviewsContext,
-  // MetaContext,
-  // QaContext,
-  // CartContext,
-  // InteractionsContext,
+  RelatedContext,
+  ReviewsContext,
+  MetaContext,
+  QaContext,
+  CartContext,
+  InteractionsContext,
 } from "./store.jsx";
 
 export default function App(props) {
@@ -25,27 +25,27 @@ export default function App(props) {
     id,
     product,
     styles,
-    // related,
-    // reviews,
-    // meta,
-    // qa,
-    // cart,
-    // interactions,
+    related,
+    reviews,
+    meta,
+    qa,
+    cart,
+    interactions,
     getProduct,
     getStyles,
-    // getRelated,
-    // getReviews,
-    // getReviewsMeta,
-    // getQa,
+    getRelated,
+    getReviews,
+    getReviewsMeta,
+    getQa,
   } = Store();
 
   useEffect(() => {
     getProduct();
     getStyles();
-    // getRelated();
-    // getReviewsMeta();
-    // getReviews();
-    // getQa();
+    getRelated();
+    getReviewsMeta();
+    getReviews();
+    getQa();
   }, []);
 
   return (
@@ -57,7 +57,7 @@ export default function App(props) {
             <Overview />
           </StylesContext.Provider>
         </ProductContext.Provider>
-        {/* <RelatedContext.Provider value={related}>
+        <RelatedContext.Provider value={related}>
           <Related />
         </RelatedContext.Provider>
         <QaContext.Provider value={qa}>
@@ -67,7 +67,7 @@ export default function App(props) {
           <MetaContext.Provider value={meta}>
             <Reviews />
           </MetaContext.Provider>
-        </ReviewsContext.Provider> */}
+        </ReviewsContext.Provider>
       </div>
     </main>
   );
