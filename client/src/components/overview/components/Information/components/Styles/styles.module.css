@@ -1,6 +1,7 @@
 .stylesContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 10px;
   margin-bottom: var(--xl-white-space);
 }
@@ -13,6 +14,7 @@
   height: 48px;
   width: 48px;
   margin-right: var(--l-white-space);
+  margin-bottom: var(--l-white-space);
 }
 
 .image {
