@@ -45,10 +45,10 @@ const ReviewsList = () => {
   );
 
   // setList(reviews);
-  console.log("reviews: ", reviews);
-  console.log("count: ", count, "reviews.length: ", reviews.length);
+  // console.log("reviews: ", reviews);
+  // console.log("count: ", count, "reviews.length: ", reviews.length);
 
-  console.log("list: ", list);
+  // console.log("list: ", list);
 
   if (list === true) {
     return (
