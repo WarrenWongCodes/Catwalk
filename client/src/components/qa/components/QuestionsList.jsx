@@ -22,7 +22,6 @@ export default function QuestionsList({ query }) {
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [numOfQuestions, setQuestionDisplay] = useState(2);
   const [showScrollView, setScrollView] = useState(false);
-  const [availableQuestions, setAvailableQCount] = useState(0);
 
   let qaData = [...qa];
   let availableQCount = qa.length;
@@ -34,6 +33,7 @@ export default function QuestionsList({ query }) {
   if (query.length > 2) {
     let newData = [];
     for (let question of qa) {
+      query = query.toLowerCase();
       if (question.question_body.includes(query)) {
         newData.push(question);
       }
@@ -74,12 +74,12 @@ export default function QuestionsList({ query }) {
             onClick={showMoreQuestions}
             className={`textButton ${buttonSpacing}`}
           >
-            More Answered Questions
+            MORE ANSWERED QUESTIONS
           </button>
         ) : null}
 
         <button className="textButton" onClick={() => setIsOpenQuestion(true)}>
-          Add a Question +
+          ADD A QUESTION +
         </button>
 
         <div className={buttonWrapperStyles}>
