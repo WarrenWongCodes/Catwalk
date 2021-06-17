@@ -57,8 +57,8 @@ export default function CardComponent({ product }) {
   };
 
   const handleTitleClick = () => {
-    console.log("Related Product Title Clicked!");
-    console.log(Store);
+    // console.log("Related Product Title Clicked!");
+    // console.log(Store);
     // Store.setId(currentProductID);
   };
 

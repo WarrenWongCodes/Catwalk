@@ -11,6 +11,9 @@ body {
   font-family: "Roboto", sans-serif;
   color: #10182f;
 }
+.hideOverflow {
+  overflow: hidden;
+}
 .cardsContainer {
   display: flex;
   width: 1040px;
@@ -20,9 +23,6 @@ body {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   overflow: scroll;
-}
-.hideOverflow {
-  overflow: hidden;
 }
 .card {
   margin: 10px;

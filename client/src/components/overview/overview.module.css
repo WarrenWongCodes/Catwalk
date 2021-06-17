@@ -6,8 +6,8 @@
 .overview {
   display: flex;
   flex-direction: row;
-  min-height: 85vh;
-  max-height: 85vh;
+  min-height: 88vh;
+  max-height: 88vh;
   padding-top: 100px;
   width: 100%;
 }
@@ -19,7 +19,7 @@
 }
 
 .infoContainer {
-  padding: var(--xl-white-space);
+  padding: var(--l-white-space);
   width: 38%;
   display: flex;
   flex-direction: column;
@@ -30,6 +30,5 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* align-items: center; */
   padding: var(--xl-white-space);
 }

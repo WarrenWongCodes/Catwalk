@@ -1,18 +1,26 @@
 import React, { useContext } from "react";
 import { OverviewContext } from "../../../../overviewContext.jsx";
 import styles from "./description.module.css";
-const { descriptionContainer, cat } = styles;
+const { descriptionContainer, cat, sale, reviews, productDescription } = styles;
 
 const Description = ({ product, styles }) => {
   const { currentStyle } = useContext(OverviewContext);
+  console.log(currentStyle);
   if (product.category) var category = product.category.toUpperCase();
   return (
     <div className={descriptionContainer}>
-      <div>
+      <div className={reviews}>
+        <span>Read all reviews</span>
+      </div>
+      <div className={productDescription}>
         <p className={cat}>{category}</p>
         <h1>{product.name}</h1>
         <br></br>
-        <p>${currentStyle.original_price}</p>
+        {currentStyle.sale_price ? (
+          <p className={sale}>SALE ${currentStyle.sale_price}</p>
+        ) : (
+          <p>${currentStyle.original_price}</p>
+        )}
       </div>
     </div>
   );
