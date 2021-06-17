@@ -13,7 +13,12 @@ export default function AddOutfitCard({ product }) {
         />
       </div>
       <div className={Styles.cardBody}>
-        <h2 className={Styles.title}>Add {product.name} to your outfit</h2>
+        <h2
+          style={{ textAlignVertical: "center", textAlign: "center" }}
+          className={Styles.title}
+        >
+          Add {product.name} to your outfit
+        </h2>
         <div className={Styles.user}></div>
       </div>
     </div>

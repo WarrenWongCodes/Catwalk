@@ -14,9 +14,11 @@ body {
 .cardsContainer {
   display: flex;
   width: 1040px;
-  padding-left: 40px;
+  /* padding-left: 40px; */
   /* justify-content: space-evenly; */
   flex-wrap:nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
 }
 .card {

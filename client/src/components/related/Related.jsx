@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
-import { RelatedContext, ProductContext, IdContext } from "../../store.jsx";
+import { RelatedContext, ProductContext } from "../../store.jsx";
 import CardComponent from "./components/Card.jsx";
 import AddOutfitCard from "./components/DefaultAddToOutfit.jsx";
 import Styles from "./related.module.css";
@@ -7,7 +7,6 @@ import Styles from "./related.module.css";
 export default function Related() {
   const related = useContext(RelatedContext);
   const product = useContext(ProductContext);
-  const id = useContext(IdContext);
 
   const [outfits, setOutfits] = useState([]);
 
