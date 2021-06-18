@@ -53,17 +53,17 @@ npm run build:dev
 ## Examples
 
 <p align="left">
-<img align="left" width="600px" src="./client/src/assets/Product Overview.png"
+<img width="600px" src="./client/src/assets/Product Overview.png"
      alt="Product Overview"
-     style="margin-right: 10px;" />
+     style="margin-right: 10px;" />&nbsp;
 
-<img align="left" width="600px" src="./client/src/assets/Related Products.png"
+<img width="600px" src="./client/src/assets/Related Products.png"
      alt="Product Overview"
-     style="margin-right: 10px;" />
+     style="margin-right: 10px;" />&nbsp;
 
-<img align="left" width="600px" src="./client/src/assets/Questions And Answers.png"
+<img width="600px" src="./client/src/assets/Questions And Answers.png"
      alt="Product Overview"
-     style="margin-right: 10px;" /></p>
+     style="margin-right: 10px;" /></p>&nbsp;
 
 
 ## Authors
