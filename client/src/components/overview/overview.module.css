@@ -6,8 +6,7 @@
 .overview {
   display: flex;
   flex-direction: row;
-  min-height: 88vh;
-  max-height: 88vh;
+  min-height: 85vh;
   padding-top: 100px;
   width: 100%;
 }
