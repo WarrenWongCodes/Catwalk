@@ -6,8 +6,10 @@ import MoreReviews from "./MoreReviews.jsx";
 import MakeReviewForm from "./MakeReviewForm.jsx";
 import ReviewModal from "./ReviewModal";
 import styles from "../styles/ReviewModals.module.css";
+import tileStyles from "../styles/ReviewTile.module.css";
 
 const { buttonWrapperStyles } = styles;
+const { select } = tileStyles;
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);
@@ -17,6 +19,9 @@ const ReviewsList = () => {
   const [list, setList] = useState(true);
   const [count, setCount] = useState(2);
 
+  const [allReviews, setAllReviews] = useState([]);
+  const [sortedArray, setSortedArray] = useState([]);
+
   const handleClick = () => {
     setList(true);
   };
@@ -25,7 +30,13 @@ const ReviewsList = () => {
     setCount(count + 2);
   };
 
-  const reviews = review.map(
+  const totalReviews = review.length;
+
+  // useEffect(() => {
+  //   setAllReviews(review);
+  // }, []);
+
+  let reviews = allReviews.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
         <div key={review_id}>
@@ -35,7 +46,7 @@ const ReviewsList = () => {
             <div style={{ color: "grey" }}>
               {reviewer_name} {new Date(date).toDateString()}
             </div>
-            {/* <Comment as="h4">{summary}</Comment> */}
+            <span>{summary}</span>
             <p key={review_id}>{body}</p>
           </div>
           {/* <Divider /> */}
@@ -44,16 +55,44 @@ const ReviewsList = () => {
     }
   );
 
-  // setList(reviews);
-  // console.log("reviews: ", reviews);
-  // console.log("count: ", count, "reviews.length: ", reviews.length);
+  useEffect(() => {
+    const sortArray = (type) => {
+      const types = {
+        Helpful: "helpfulness",
+        Newest: "date",
+        Relevant: "rating",
+      };
 
-  // console.log("list: ", list);
+      const sortProperty = types[type];
+      const sorted = [...review].sort((a, b) => {
+        if (a[sortProperty] > b[sortProperty]) {
+          return -1;
+        }
+        if (a[sortProperty] < b[sortProperty]) {
+          return 1;
+        }
+        return 0;
+      });
+      setAllReviews(sorted);
+    };
+    sortArray(sortedArray);
+  }, [sortedArray]);
 
   if (list === true) {
     return (
       <div>
-        <p>Reviews</p>
+        <div>
+          <p>{totalReviews} reviews, sorted by </p>
+          <select
+            defaultValue="Relevant"
+            onChange={(e) => setSortedArray(e.target.value)}
+            className={select}
+          >
+            <option value="Helpful">Helpful</option>
+            <option value="Newest">Newest</option>
+            <option value="Relevant">Relevant</option>
+          </select>
+        </div>
         {/* <Divider /> */}
         {list ? <div>{reviews.slice(0, count)} </div> : null}
         {reviews.length > count ? (
