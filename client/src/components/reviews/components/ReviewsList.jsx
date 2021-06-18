@@ -111,8 +111,7 @@ const ReviewsList = () => {
     return (
       <div>
         <div>
-          <h3>{totalReviews}</h3>
-          <p>reviews, sorted by </p>
+          <h3>{totalReviews} reviews, sorted by </h3>
           <select
             defaultValue="Relevant"
             onChange={(e) => sortArray(e.target.value)}

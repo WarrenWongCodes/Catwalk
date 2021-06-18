@@ -37,7 +37,7 @@ const AveRatingDisp = (props) => {
 
   return (
     <div>
-      <h3 className="ratingsHeadline">RATINGS & REVIEWS</h3>
+      <h2 className="ratingsHeadline">Ratings & Reviews</h2>
       <div className={topRow}>
         <div className="disp">
           {/* <div> */}
