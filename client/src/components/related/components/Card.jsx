@@ -4,17 +4,16 @@ import Styles from "../related.module.css";
 import axios from "axios";
 import KEYS from "/config.js";
 import { FaStar, FaRegStar } from "react-icons/fa";
-// import { setId } from "../../../store.jsx";
-
-// console.log(setId);
 
 import StarRating from "../../reviews/components/StarRatings.jsx";
 import starStyle from "../../../styles/global/star.css";
 
 // console.log(star);
 
-export default function CardComponent({ product }) {
+export default function CardComponent({ product, setId }) {
   const id = useContext(IdContext);
+  // console.log("SetID in Card.jsx", setId);
+
   const [relatedImage, setRelatedImages] = useState([
     "https://i.pinimg.com/originals/a2/dc/96/a2dc9668f2cf170fe3efeb263128b0e7.gif",
   ]);
@@ -35,7 +34,7 @@ export default function CardComponent({ product }) {
         return results[i].photos[0].thumbnail_url;
       }
       if (results[0].photos[0].thumbnail_url === null) {
-        return "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png";
+        return "https://www.hopkinsmedicine.org/sebin/n/r/noimageavailable.png";
       }
     }
 
@@ -61,8 +60,8 @@ export default function CardComponent({ product }) {
 
   const handleTitleClick = () => {
     console.log("Related Product Title Clicked!");
-    console.log(Store);
-    // setId(currentProductID);
+    // console.log(Store);
+    setId(currentProductID.toString());
   };
 
   if (product.id !== undefined) {

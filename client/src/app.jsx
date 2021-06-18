@@ -10,6 +10,7 @@ import Navbar from "./components/common/Navbar/Navbar.jsx";
 import {
   Store,
   IdContext,
+  setId,
   ProductContext,
   StylesContext,
   RelatedContext,
@@ -23,6 +24,7 @@ import {
 export default function App(props) {
   const {
     id,
+    setId,
     product,
     styles,
     related,
@@ -46,7 +48,9 @@ export default function App(props) {
     getReviewsMeta();
     getReviews();
     getQa();
-  }, []);
+  }, [id]);
+
+  // console.log("SEt id in App", setId);
 
   return (
     <main>
@@ -60,7 +64,7 @@ export default function App(props) {
         <RelatedContext.Provider value={related}>
           <ProductContext.Provider value={product}>
             <IdContext.Provider value={id}>
-              <Related />
+              <Related setId={setId} />
             </IdContext.Provider>
           </ProductContext.Provider>
         </RelatedContext.Provider>

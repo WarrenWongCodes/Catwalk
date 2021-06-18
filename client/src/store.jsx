@@ -112,6 +112,7 @@ export const Store = () => {
   };
   return {
     id,
+    setId,
     product,
     styles,
     related,

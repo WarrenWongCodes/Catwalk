@@ -15,7 +15,9 @@ export default function QA() {
 
   return (
     <div className={`container ${flexContainer}`}>
-      <h4>{"Questions & Answers"}</h4>
+      <br></br>
+      <br></br>
+      <h2>{"Questions & Answers"}</h2>
       <Search search={searchChangeHandler} />
       <QuestionsList query={query} />
     </div>
