@@ -1,15 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
-// import { Container, Divider, Comment } from "semantic-ui-react";
 import StarRating from "./StarRatings.jsx";
 import MoreReviews from "./MoreReviews.jsx";
 import MakeReviewForm from "./MakeReviewForm.jsx";
 import ReviewModal from "./ReviewModal";
 import styles from "../styles/ReviewModals.module.css";
 import tileStyles from "../styles/ReviewTile.module.css";
+import dividers from "../styles/reviews.css";
+import buttons from "../../qa/styles/QuestionsList.module.css";
+import meta from "../../qa/styles/MetaData.module.css";
 
 const { buttonWrapperStyles } = styles;
-const { select } = tileStyles;
+const { select, titleRow, userName, ratingStar, helpStyle } = tileStyles;
+const { solid, reviewRow } = dividers;
+const { buttonSpacing } = buttons;
+const { metaData, link, seeMoreAnswers } = meta;
 
 const ReviewsList = () => {
   const product = useContext(ProductContext);
@@ -36,22 +41,47 @@ const ReviewsList = () => {
     setAllReviews(review);
   }, []);
 
-  console.log("review: ", review);
-
   let reviews = review.map(
-    ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
+    ({
+      review_id,
+      rating,
+      summary,
+      response,
+      body,
+      date,
+      reviewer_name,
+      helpfulness,
+    }) => {
       return (
         <div key={review_id}>
-          {/* <Divider /> */}
-          <StarRating rating={rating} />
-          <div key={review_id}>
-            <div style={{ color: "grey" }}>
-              {reviewer_name} {new Date(date).toDateString()}
+          <hr className={solid} />
+          <div className={titleRow}>
+            <StarRating rating={rating} className={ratingStar} />
+            <div key={review_id} className={`username ${metaData}`}>
+              <div style={{ color: "grey" }}>
+                {reviewer_name} {new Date(date).toDateString()}
+              </div>
             </div>
-            <span>{summary}</span>
-            <p key={review_id}>{body}</p>
           </div>
-          {/* <Divider /> */}
+          <span>{summary}</span>
+          <p style={{ color: "grey" }} key={review_id}>
+            {body}
+          </p>
+          <div>
+            <div className={helpStyle}>
+              Helpful?{" "}
+              <span>
+                <a style={{ color: "grey" }} href="">
+                  Yes
+                </a>{" "}
+                ({helpfulness}) |{" "}
+                <a className="link" style={{ color: "grey" }} href="">
+                  Report
+                </a>
+              </span>
+            </div>
+          </div>
+          <hr className={solid} />
         </div>
       );
     }
@@ -81,7 +111,8 @@ const ReviewsList = () => {
     return (
       <div>
         <div>
-          <p>{totalReviews} reviews, sorted by </p>
+          <h3>{totalReviews}</h3>
+          <p>reviews, sorted by </p>
           <select
             defaultValue="Relevant"
             onChange={(e) => sortArray(e.target.value)}
@@ -92,29 +123,30 @@ const ReviewsList = () => {
             <option value="Relevant">Relevant</option>
           </select>
         </div>
-        {/* <Divider /> */}
         {list ? <div>{reviews.slice(0, count)} </div> : null}
-        {reviews.length > count ? (
+        <div>
+          {reviews.length > count ? (
+            <button
+              className={`textButton ${buttonSpacing}`}
+              onClick={() => {
+                addTwo();
+              }}
+            >
+              More Reviews
+            </button>
+          ) : null}
           <button
-            onClick={() => {
-              addTwo();
-            }}
+            className={`textButton ${buttonSpacing}`}
+            onClick={() => setIsOpen(true)}
           >
-            More Reviews
+            {" "}
+            Write A Review{" "}
           </button>
-        ) : null}
-
-        {/* <MoreReviews
-          toClick={handleClick}
-          product={product.id}
-          reviews={review}
-          state={[list, setList]}
-        /> */}
+        </div>
         <div
           className={buttonWrapperStyles}
           onClick={() => console.log("clicked")}
         >
-          <button onClick={() => setIsOpen(true)}> Write A Review </button>
           <ReviewModal open={isOpen} closeModal={() => setIsOpen(false)}>
             <MakeReviewForm />
           </ReviewModal>
@@ -125,19 +157,15 @@ const ReviewsList = () => {
     return (
       <div>
         <p>Reviews</p>
-        {/* <Divider /> */}
-        {/* <MoreReviews
-          toClick={handleClick}
-          product={product.id}
-          reviews={review}
-          state={[list, setList]}
-        /> */}
         <div> -- </div>
         <div
           className={buttonWrapperStyles}
           onClick={() => console.log("clicked")}
         >
-          <button onClick={() => setIsOpen(true)}> Write A Review </button>
+          <button className="textButton" onClick={() => setIsOpen(true)}>
+            {" "}
+            Write A Review{" "}
+          </button>
           <ReviewModal open={isOpen} closeModal={() => setIsOpen(false)}>
             <MakeReviewForm />
           </ReviewModal>

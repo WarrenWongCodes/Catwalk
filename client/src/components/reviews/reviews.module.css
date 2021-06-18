@@ -13,7 +13,7 @@
 }
 
 .displayContainer {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width: 100%;
   margin-left: 10px;
 }
@@ -27,7 +27,14 @@
   margin-left: 10px;
   /* height: 100%; */
   /* float: right; */
-  width: 100%;
+  width: 70%;
   /* margin: auto; */
   /* padding: 0; */
 }
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+
+

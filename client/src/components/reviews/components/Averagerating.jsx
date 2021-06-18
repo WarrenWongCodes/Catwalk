@@ -6,6 +6,9 @@ import Recommend from "./Recommend";
 import SizeSlider from "./SizeSlider";
 import SliderBreakdown from "./SliderBreakdown";
 import styles from "../styles/slider.module.css";
+import display from "../styles/Ratings.module.css";
+
+const { topRow, starRow, aveRow } = display;
 
 const AveRatingDisp = (props) => {
   const meta = useContext(MetaContext);
@@ -28,7 +31,6 @@ const AveRatingDisp = (props) => {
     useEffect(() => {
       setAve(Math.ceil(display * 4) / 4);
     });
-    // check docs about second param for useEffect
 
     return Math.ceil(display * 4) / 4;
   };
@@ -36,12 +38,15 @@ const AveRatingDisp = (props) => {
   return (
     <div>
       <h3 className="ratingsHeadline">RATINGS & REVIEWS</h3>
-      <div className="disp">
-        <div>
-          <Ave />
+      <div className={topRow}>
+        <div className="disp">
+          {/* <div> */}
+          <Ave className={aveRow} />
+          {/* </div> */}
+          <StarRating rating={ave} className={starRow} />
         </div>
-        <StarRating rating={ave} />
       </div>
+
       <div>
         <Recommend />
       </div>
