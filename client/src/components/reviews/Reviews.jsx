@@ -13,7 +13,7 @@ const Reviews = () => {
 
   return (
     <>
-      <div className={`container  ${mainContainer}`}>
+      <div className={`container  ${mainContainer}`} id="scrollIntoComp">
         <div className={` ${reviewContainer}`}>
           <AverageRatingDisp />
         </div>
