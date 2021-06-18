@@ -20,7 +20,7 @@ const ReviewsList = () => {
   const [count, setCount] = useState(2);
 
   const [allReviews, setAllReviews] = useState([]);
-  const [sortedArray, setSortedArray] = useState([]);
+  const [sortedArray, setSortedArray] = useState(review);
 
   const handleClick = () => {
     setList(true);
@@ -32,11 +32,13 @@ const ReviewsList = () => {
 
   const totalReviews = review.length;
 
-  // useEffect(() => {
-  //   setAllReviews(review);
-  // }, []);
+  useEffect(() => {
+    setAllReviews(review);
+  }, []);
 
-  let reviews = allReviews.map(
+  console.log("review: ", review);
+
+  let reviews = review.map(
     ({ review_id, rating, summary, response, body, date, reviewer_name }) => {
       return (
         <div key={review_id}>
@@ -55,28 +57,25 @@ const ReviewsList = () => {
     }
   );
 
-  useEffect(() => {
-    const sortArray = (type) => {
-      const types = {
-        Helpful: "helpfulness",
-        Newest: "date",
-        Relevant: "rating",
-      };
-
-      const sortProperty = types[type];
-      const sorted = [...review].sort((a, b) => {
-        if (a[sortProperty] > b[sortProperty]) {
-          return -1;
-        }
-        if (a[sortProperty] < b[sortProperty]) {
-          return 1;
-        }
-        return 0;
-      });
-      setAllReviews(sorted);
+  const sortArray = (type) => {
+    const types = {
+      Helpful: "helpfulness",
+      Newest: "date",
+      Relevant: "rating",
     };
-    sortArray(sortedArray);
-  }, [sortedArray]);
+
+    const sortProperty = types[type];
+    const sorted = [...review].sort((a, b) => {
+      if (a[sortProperty] > b[sortProperty]) {
+        return -1;
+      }
+      if (a[sortProperty] < b[sortProperty]) {
+        return 1;
+      }
+      return 0;
+    });
+    setSortedArray(sorted);
+  };
 
   if (list === true) {
     return (
@@ -85,7 +84,7 @@ const ReviewsList = () => {
           <p>{totalReviews} reviews, sorted by </p>
           <select
             defaultValue="Relevant"
-            onChange={(e) => setSortedArray(e.target.value)}
+            onChange={(e) => sortArray(e.target.value)}
             className={select}
           >
             <option value="Helpful">Helpful</option>
