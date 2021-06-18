@@ -23,7 +23,7 @@ A fully functional client facing product detail page with an overview product de
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [project-catwalk](#project-catwalk)
+- Team Fusilli
   - [The problem](#the-problem)
   - [This solution](#this-solution)
   - [Table of Contents](#table-of-contents)
@@ -65,10 +65,13 @@ npm run build:dev
      alt="Product Overview"
      style="margin-right: 10px;" /></p>&nbsp;
 
+<img width="600px" src="./client/src/assets/RatingsAndReviews.png"
+     alt="Product Overview"
+     style="margin-right: 10px;" /></p>&nbsp;
 
-## Authors
+## Contributors
 
-Thanks goes to these people ([emoji key][emojis]):
+Thanks goes to these people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
