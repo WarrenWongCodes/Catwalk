@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { OverviewContext } from "../../../../overviewContext.jsx";
 import styles from "./description.module.css";
+import { Link } from "react-scroll";
 const { descriptionContainer, cat, sale, reviews, productDescription } = styles;
 
 const Description = ({ product, styles }) => {
@@ -9,7 +10,11 @@ const Description = ({ product, styles }) => {
   return (
     <div className={descriptionContainer}>
       <div className={reviews}>
-        <span>Read all reviews</span>
+        <span>
+          <Link to="scrollIntoComp" spy={true} smooth={true}>
+            Read all reviews
+          </Link>
+        </span>
       </div>
       <div className={productDescription}>
         <p className={cat}>{category}</p>

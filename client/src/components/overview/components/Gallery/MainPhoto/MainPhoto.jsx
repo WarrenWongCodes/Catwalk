@@ -20,7 +20,10 @@ const MainPhoto = ({ current = {} }) => {
           container.currentStyle || window.getComputedStyle(container, false);
         var imgsrc = current.url;
         var img = new Image();
-
+        Object.assign(container.style, {
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        });
         // (B) LOAD IMAGE + ATTACH ZOOM
         img.src = imgsrc;
         img.onload = function () {
@@ -64,8 +67,6 @@ const MainPhoto = ({ current = {} }) => {
       style={{
         height: "100%",
         background: `url(${current.url})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
       }}
     >
       {/* <img src={current ? current.url : ""} className={image}></img> */}
