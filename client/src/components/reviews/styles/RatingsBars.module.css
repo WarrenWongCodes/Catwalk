@@ -1,5 +1,8 @@
 .disp {
+  display: flex;
+  flex-direction: row;
   font-size: xx-large;
+
 }
 
 .ratingsHeadline {

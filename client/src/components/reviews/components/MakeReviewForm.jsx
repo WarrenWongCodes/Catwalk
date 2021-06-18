@@ -6,8 +6,13 @@ import PostReview from "../api/PostReview";
 import { useInput } from "../utils/formInputHook.jsx";
 import ReviewModal from "./ReviewModal";
 import { ReviewsContext } from "../../../store";
-// import { Container, Divider, Comment } from "semantic-ui-react";
-import "../styles/reviews.css";
+import styles from "../styles/ReviewModals.module.css";
+import buttons from "../../qa/styles/QuestionsList.module.css";
+import dividers from "../styles/reviews.css";
+
+const { fontSize, spacingStyles, modalHeader, modalFooter } = styles;
+const { buttonSpacing } = buttons;
+const { solid, reviewRow } = dividers;
 
 const MakeReviewForm = () => {
   const { id } = useContext(ReviewsContext);
@@ -98,101 +103,98 @@ const MakeReviewForm = () => {
   };
 
   return (
-    <form>
-      <label>
-        Rating
+    <>
+      <form>
+        <h2 className={spacingStyles}>Submit A Review</h2>
+        <p className={`${spacingStyles} ${fontSize}`}></p>
+        <label className={fontSize}>
+          Rating
+          <br />
+          <input
+            type="text"
+            name="rating"
+            placeholder="how many stars out of 5"
+            {...bindRating}
+          />
+          <br />
+        </label>
+        <hr className={solid} />
         <br />
+
+        <label className={fontSize}>
+          Summary
+          <input
+            type="text"
+            name="summary"
+            placeholder="summary"
+            {...bindSummary}
+          />
+        </label>
+        <br />
+        <hr className={solid} />
+        <label className={fontSize}>
+          Please write about your experience with our product:
+          <br />
+          <textarea name="body" {...bindBody}></textarea>
+        </label>
+        <br />
+        <br />
+        <label className={fontSize}>
+          Would you recommend this product?
+          <input
+            type="checkbox"
+            name="reccomend"
+            checked="checked"
+            {...bindReccomend}
+          />
+          <hr className={solid} />
+        </label>
+        <br />
+        <label className={fontSize}>
+          Name:
+          <input
+            type="text"
+            name="name"
+            placeholder="For privacy reasons, do not use your full name or email address"
+            {...bindName}
+          />
+          <hr className={solid} />
+        </label>
+        <label className={fontSize}>
+          Your Email:
+          <br />
+          <input type="text" name="email" {...bindEmail} />
+          <hr className={solid} />
+          <br />
+          For authentication reasons, you will not be emailed
+        </label>
+        <br />
+        <label className={fontSize}>
+          Upload Photos*:
+          <br />
+          <input type="text" name="photos[photoUrl][]" {...bindPhotos} />
+          <hr className={solid} />
+          <br />
+        </label>
+        <label className={fontSize}>
+          Characteristics:
+          <br />
+          <input
+            type="text"
+            name="characteristics{}{}"
+            {...bindCharacteristics}
+          />
+          <br />
+        </label>
+        <hr className={solid} />
         <input
-          type="text"
-          name="rating"
-          placeholder="how many stars out of 5"
-          {...bindRating}
+          className={`textButton ${buttonSpacing}`}
+          onClick={(e) => addAReviewHandler(e)}
+          type="submit"
+          value="Submit"
         />
-      </label>
-      <br />
-      <br />
-      <label>
-        Summary
-        <br />
-        <input
-          type="text"
-          name="summary"
-          placeholder="summary"
-          {...bindSummary}
-        />
-      </label>
-      <br />
-      <br />
-      <label>
-        Please write about your experience with our product:
-        <br />
-        <textarea name="body" {...bindBody}></textarea>
-      </label>
-      <br />
-      <br />
-      <label>
-        Would you reccomend this product?
-        <br />
-        <input
-          type="checkbox"
-          name="reccomend"
-          checked="checked"
-          {...bindReccomend}
-        />
-      </label>
-      <br />
-      <br />
-      <label>
-        Name*:
-        <br />
-        <input
-          type="text"
-          name="name"
-          placeholder="For privacy reasons, do not use your full name or email address"
-          {...bindName}
-        />
-      </label>
-      <br />
-      <br />
-      <br />
-      <label>
-        Your Email*:
-        <br />
-        <br />
-        <input type="text" name="email" {...bindEmail} />
-        <br />
-        For authentication reasons, you will not be emailed
-      </label>
-      <br />
-      <br />
-      <label>
-        Upload Photos*:
-        <br />
-        <br />
-        <input type="text" name="photos[photoUrl][]" {...bindPhotos} />
-        <br />
-      </label>
-      <br />
-      <br />
-      <label>
-        Characteristics:
-        <br />
-        <br />
-        <input
-          type="text"
-          name="characteristics{}{}"
-          {...bindCharacteristics}
-        />
-        <br />
-      </label>
-      <br />
-      <br />
-      <input
-        onClick={(e) => addAReviewHandler(e)}
-        type="submit"
-        value="Submit"
-      />
-    </form>
+      </form>
+    </>
   );
 };
 

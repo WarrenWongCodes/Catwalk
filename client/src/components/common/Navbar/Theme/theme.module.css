@@ -1,0 +1,5 @@
+.themeContainer {
+  color: var(--brand-color);
+  font: var(--xl-font);
+  cursor: pointer;
+}
