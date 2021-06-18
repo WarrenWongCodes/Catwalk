@@ -31,7 +31,7 @@ export default function Related() {
         className={Styles.cardsContainer}
         onClick={() => handleOutfitClick()}
       >
-        <AddOutfitCard product={product} />
+        <AddOutfitCard product={product} style={style} />
         {outfits}
       </div>
     </div>
