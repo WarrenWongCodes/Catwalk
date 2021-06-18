@@ -9,7 +9,7 @@ const Navbar = () => {
     <header className={wrapper}>
       <div className={`container ${container}`}>
         <Theme />
-        <span className={logo}>Catshop</span>
+        <span className={logo}>Guchie</span>
         <Search className={icon} />
       </div>
     </header>
