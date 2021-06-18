@@ -5,7 +5,7 @@ const { descriptionContainer, cat, sale, reviews, productDescription } = styles;
 
 const Description = ({ product, styles }) => {
   const { currentStyle } = useContext(OverviewContext);
-  console.log(currentStyle);
+  // console.log(currentStyle);
   if (product.category) var category = product.category.toUpperCase();
   return (
     <div className={descriptionContainer}>

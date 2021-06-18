@@ -27,7 +27,6 @@ export default function Related() {
       <br></br>
       <h2>Outfit</h2>
       <br></br>
-      <h2>Outfit</h2>
       <div
         className={Styles.cardsContainer}
         onClick={() => handleOutfitClick()}
