@@ -7,7 +7,7 @@ const { labelChar, slideContainer, slider, labelRow } = styles;
 
 const SliderBreakdown = () => {
   const meta = useContext(MetaContext);
-  // console.log("meta: ", meta.characteristics);
+  // console.log('meta: ', meta.characteristics);
 
   const [value, setvalue] = useState(0);
 

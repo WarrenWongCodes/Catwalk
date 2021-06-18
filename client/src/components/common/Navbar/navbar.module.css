@@ -5,7 +5,7 @@
   z-index: 10;
 }
 
-.navcontainer {
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;

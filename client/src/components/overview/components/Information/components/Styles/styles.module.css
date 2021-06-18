@@ -1,18 +1,21 @@
 .stylesContainer {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-  margin-bottom: var(--xl-white-space);
+  display: grid;
+  grid-template-columns: 60px 60px 60px 60px;
+  gap: var(--s-white-space);
+  margin-top: var(--s-white-space);
 }
 
 .styleText {
   font-weight: 700;
+  margin-bottom: var(--m-white-space);
 }
 
 .imgContainer {
   height: 48px;
   width: 48px;
   margin-right: var(--l-white-space);
+  margin-bottom: var(--l-white-space);
+  cursor: pointer;
 }
 
 .image {

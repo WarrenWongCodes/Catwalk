@@ -86,7 +86,7 @@ const MakeReviewForm = () => {
     })
       .then((response) => {
         if (_isMounted.current) {
-          console.log(response.status);
+          // console.log(response.status);
           resetRating();
           resetSummary();
           resetBody();
