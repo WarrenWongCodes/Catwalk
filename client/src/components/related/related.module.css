@@ -85,6 +85,15 @@ body {
   height: 250px;
   object-fit: cover;
 }
+
+.cardDefaultHeader img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
 .cardBody {
   display: flex;
   flex-direction: column;

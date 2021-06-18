@@ -1,0 +1,14 @@
+.topRow {
+  display: flex;
+}
+
+.starRow {
+  display: flex;
+  float: right;
+}
+
+.aveRow {
+  display: flex;
+  float: left;
+
+}

@@ -3,12 +3,12 @@ import Styles from "../related.module.css";
 
 // console.log(star);
 
-export default function AddOutfitCard({ product }) {
+export default function AddOutfitCard({ product, style }) {
   return (
     <div className={Styles.card}>
-      <div className={Styles.cardHeader}>
+      <div className={Styles.cardDefaultHeader}>
         <img
-          src="https://lh3.googleusercontent.com/proxy/ElHbl9HhIOOAyo4xnbxqfKdLyv7ec213pjqUsv5fsg5RAUPjzRUVRNlkwTAPGYCXAJ4usGqU3mes-WmuDzC-4DSaf1_aBduWHH5vZ9v_bi9t"
+          src="https://images.unsplash.com/photo-1551489186-cf8726f514f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80"
           alt="addOutfit"
         />
       </div>
