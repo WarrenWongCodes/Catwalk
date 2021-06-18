@@ -1,7 +1,7 @@
 .wrapper {
   position: fixed;
   width: 100%;
-  background-color: var(--font-color);
+  background-color: #130d03;
   z-index: 10;
 }
 
@@ -14,6 +14,7 @@
 
 .logo {
   font: var(--l-font);
+  line-height: 1;
   color: var(--brand-color);
 }
 
@@ -21,4 +22,5 @@
   /* font-size: 22px; */
   color: var(--brand-color);
   font: var(--xl-font);
+  cursor: pointer;
 }
