@@ -35,11 +35,12 @@ const MainPhoto = ({ current = {} }) => {
           // (C) ZOOM ON MOUSE MOVE
           container.onmousemove = function (e) {
             var boxWidth = container.clientWidth;
+            var boxHeight = container.clientHeight;
             var rect = e.target.getBoundingClientRect();
             var xPos = e.clientX - rect.left;
             var yPos = e.clientY - rect.top;
             var xPercent = xPos / (boxWidth / 100) + "%";
-            var yPercent = yPos / ((boxWidth * ratio) / 100) + "%";
+            var yPercent = yPos / (boxHeight / 100) + "%";
 
             Object.assign(container.style, {
               backgroundPosition: xPercent + " " + yPercent,
