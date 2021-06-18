@@ -4,10 +4,12 @@ import CardComponent from "./components/Card.jsx";
 import AddOutfitCard from "./components/DefaultAddToOutfit.jsx";
 import Styles from "./related.module.css";
 
-export default function Related() {
+export default function Related({ setId }) {
   const related = useContext(RelatedContext);
   const product = useContext(ProductContext);
   const style = useContext(StylesContext);
+
+  // console.log("SEt id in related", setId);
 
   const [outfits, setOutfits] = useState([]);
 
@@ -21,7 +23,7 @@ export default function Related() {
       <br></br>
       <div className={`${Styles.backgroundOverlay} ${Styles.cardsContainer}`}>
         {related.map((item, i) => {
-          return <CardComponent key={i} product={item.data} />;
+          return <CardComponent key={i} product={item.data} setId={setId} />;
         })}
       </div>
       <br></br>

@@ -50,7 +50,7 @@
 }
 
 .ratingsHeadline {
-  color: rgba(22, 22, 22, 0.466);
+  color: var(--font-color)
 }
 
 /* RatingBars */

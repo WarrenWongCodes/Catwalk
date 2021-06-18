@@ -73,8 +73,8 @@ body {
 
 .card {
   margin: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-color);
+  box-shadow: 0 1px 2px var(--border-color);
   overflow:visible;
   flex: 0 0 25%;
   width: 150px;
