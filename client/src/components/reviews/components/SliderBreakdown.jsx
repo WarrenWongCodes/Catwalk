@@ -3,7 +3,7 @@ import { MetaContext } from "../../../store.jsx";
 import { ProductContext, ReviewsContext } from "../../../store.jsx";
 import styles from "../styles/slider.module.css";
 
-const { spacer, slideContainer, slider, labelRow } = styles;
+const { labelChar, slideContainer, slider, labelRow } = styles;
 
 const SliderBreakdown = () => {
   const meta = useContext(MetaContext);
@@ -64,11 +64,7 @@ const SliderBreakdown = () => {
   if (metaVals !== undefined) {
     vals = Object.entries(metaVals);
     const characteristics = Object.entries(metaVals);
-    // console.log('vals: ', vals);
-    // console.log('metaId: ', meta.product_id);
     const key = meta.product_id;
-    // console.log(key)
-    // console.log('key: ', key);
   }
   const slides = vals.map((char, index) => {
     const value = Math.round(char[1].value);
@@ -77,25 +73,25 @@ const SliderBreakdown = () => {
     const maxVal = key[char[0]][5];
     return (
       <div key={index}>
-        <div className={spacer}>
-          <div>{char[0]}</div>
-          <div className={slideContainer}>
-            <input
-              type="range"
-              min={1}
-              max={5}
-              step={1}
-              value={value}
-              className={slider}
-              readOnly={true}
-            />
-          </div>
-          <div className={labelRow}>
-            <div>{minVal}</div>
-            <div>{midVal}</div>
-            <div>{maxVal}</div>
-          </div>
-          <div className={spacer}></div>
+        {/* <div className={labelChar}>{char[0]}</div> */}
+        <label>{char[0]}</label>
+        <div className={slideContainer}>
+          <input
+            label={char[0]}
+            id={char[0]}
+            type="range"
+            min={1}
+            max={5}
+            step={1}
+            value={value}
+            className={slider}
+            readOnly={true}
+          />
+        </div>
+        <div className={labelRow}>
+          <div>{minVal}</div>
+          <div>{midVal}</div>
+          <div>{maxVal}</div>
         </div>
       </div>
     );

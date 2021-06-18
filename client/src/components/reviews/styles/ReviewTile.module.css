@@ -1,0 +1,43 @@
+.select {
+  border: 0;
+  background-color: rgb(250, 246, 242);
+  text-decoration: underline;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  /* background-color: blue; */
+}
+
+.ratingStar {
+  float: left;
+  /* background-color: blue; */
+}
+
+.userName {
+  /* display: flex; */
+  /* margin-right: auto; */
+  float: right;
+  margin-left: 180px;
+  /* background-color: blue; */
+}
+
+.helpStyle {
+  font-size: 0.75em;
+  margin-top: 8px;
+}
+
+input, textarea {
+  width: 400px;
+  margin-top: 15px;
+}
+
+.fontSize {
+  font: var(--m-font);
+}
+
+.spacingStyles {
+  margin-top: var(--m-white-space);
+  margin-bottom: var(--m-white-space);
+}

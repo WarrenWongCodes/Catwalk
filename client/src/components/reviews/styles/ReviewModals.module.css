@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(223, 91, 91);
+  background-color: #e2a850;
   padding: 50px;
   z-index: 1000;
 }
@@ -22,3 +22,33 @@
   position: relative;
   z-index: 1;
 }
+/* .modalHeader, */
+/* .modalBody, */
+.modalFooter {
+  margin-top: 100px;
+  padding: 2rem;
+}
+
+input, textarea {
+  width: 400px;
+  margin-top: 15px;
+}
+
+.fontSize {
+  font-size: 16px;
+}
+
+.spacingStyles {
+  margin-top: var(--m-white-space);
+  margin-bottom: var(--m-white-space);
+}
+
+.buttonSpacing {
+  margin-right: var(--l-white-space);
+}
+/* :root {
+  --bg-color: #f9f9f9;
+  --border-color: #c7c7c4;
+  --brand-color: #e2a850;
+  --font-color: #130d03;
+} */
