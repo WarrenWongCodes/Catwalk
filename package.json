@@ -4,6 +4,7 @@
   "description": "<h1 align=\"center\">   CatWalk 😺   <br>   <img src=\"https://media.giphy.com/media/lJNoBCvQYp7nq/giphy.gif\" alt=\"downshift logo\" title=\"downshift logo\" width=\"300\">   <br> </h1> <p align=\"center\" style=\"font-size: 1.2rem;\">Primitives to build simple, flexible, WAI-ARIA compliant React autocomplete, combobox or select dropdown components.</p>",
   "main": "index.js",
   "scripts": {
+    "test": "jest --coverage",
     "build": "webpack --mode production",
     "build:dev": "webpack -w --mode development"
   },
@@ -29,6 +30,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "dotenv": "^10.0.0",
