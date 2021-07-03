@@ -4,6 +4,7 @@
   "description": "Atlier Project Catwalk",
   "scripts": {
     "start": "node index.js",
+    "start:dev": "nodemon index.js",
     "test": "jest --coverage",
     "build": "webpack --mode production",
     "build:dev": "webpack -w --mode development"
@@ -37,6 +38,7 @@
     "mini-css-extract-plugin": "^1.6.0",
     "mocha": "^8.4.0",
     "node-sass": "^6.0.0",
+    "nodemon": "^2.0.9",
     "prettier": "^2.3.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^2.0.0",
