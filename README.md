@@ -1,81 +1,105 @@
-# Team - Fusilli
-
 <h1 align="center">
-  Project CatWalk 😺
-  <br>
-  <img src="https://media.giphy.com/media/lJNoBCvQYp7nq/giphy.gif" alt="cat giphy" width="300">
+  Fusilli - Project CatWalk 😺
+  <br><br>
+  <img src="./client/src/assets/questions-answers.gif" alt="site overview gif">
   <br>
 </h1>
-<p align="center" style="font-size: 1.2rem;">A 21st century solution to all your shopping needs.</p>
+
+<p align="center" style="font-size: 1.4rem;">A 21st century solution to all your shopping needs.</p>
 
 <hr />
 
 ## The problem
 
-Our outdated client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers.   Project Catwalk comprises a complete redesign of the retail portal designed to address this concern and modernize the site.  This document outlines the features to be implemented as part of Project Catwalk in its initial release.  The following requirements define the new user interface required for customers to browse items in our retail catalog.
+Our outdated client-facing retail web-portal has become significantly outdated and is hurting sales. Project Catwalk is a complete redesign of the retail portal designed to address this concern and modernize the site. This document outlines the features to be implemented as part of Project Catwalk.
 
 ## This solution
 
-A fully functional client facing product detail page with an overview product detail, a related products image slider, with a dynamic questions and answers solution, and topped off with a reviews and rating.
+A client facing product detail page with a product overview, related products image slider, questions and answers, and a reviews and rating.
 
 ## Table of Contents
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+- [The problem](#the-problem)
+- [This solution](#this-solution)
+- [Table of Contents](#table-of-contents)
+- [Overview](#Overview)
+- [Installation](#installation)
+- [Components](#Components)
+- [Contributors](#contributors)
 
-- Team Fusilli
-  - [The problem](#the-problem)
-  - [This solution](#this-solution)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Examples](#examples)
-  - [FAQ](#faq)
-  - [Contributors](#contributors)
+## Overview
 
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+- E-commerce site built with React hooks, React Context API, Node.js and Express
+- Light and dark theme mode utilizing CSS modules
+- Deploy with AWS EC2 instance (t2.micro), with 0.6 sec First Content Paint
+- 4 distinct components with there own unique challenges
 
 ## Installation
-
-This module is distributed via [npm][npm] which is bundled with [node][node] and
-should be installed as one of your project's `dependencies`:
 
 ```
 npm install
 
-npm run build:dev
+npm start
+
+npm run build
 ```
 
-> This package also depends on `react`. Please make sure you have it installed
-> as well.
+## Components
 
+Each team member was responsible for a component with its own set of unique business requirements. A brief introduction and component highlights are available below.
 
-## Examples
+### Product Overview by Diego Coronel
 
-<p align="left">
-<img width="600px" src="./client/src/assets/Product Overview.png"
-     alt="Product Overview"
-     style="margin-right: 10px;" />&nbsp;
+### Intro
 
-<img width="600px" src="./client/src/assets/Related Products.png"
-     alt="Product Overview"
-     style="margin-right: 10px;" />&nbsp;
+The
 
-<img width="600px" src="./client/src/assets/Questions And Answers.png"
-     alt="Product Overview"
-     style="margin-right: 10px;" /></p>&nbsp;
+### Product Overview Breakdown
 
-<img width="600px" src="./client/src/assets/RatingsAndReviews.png"
-     alt="Product Overview"
-     style="margin-right: 10px;" /></p>&nbsp;
+![Product Overview](client/src/assets/Product-Overview.png 'product overview component')
+
+### Related Products by Tristan Lerisse
+
+### Intro
+
+### Related Products Breakdown
+
+![Related Products](client/src/assets/Related-Products.png 'related products component')
+
+### Questions & Answers by Warren Wong
+
+### Intro
+
+The questions and answer component allows the users to ask and answer questions for the product selected. This component utilized central state provided by React Context API and custom React hooks, coupled with CSS modules.
+
+### Questions & Answers Breakdown
+
+Per the business requirements this component includes 4 distinct sub components:
+
+- Questions & Answers List View:
+  - List will have the ability to expand and collapse with scroll ability
+  - Questions will appear in order of 'helpfulness', corresponding to the how many users have indicated that the question was helpful
+  - Questions list can be filtered through the search bar component
+- Search Bar Capable:
+  - Search terms entered will filter the list view for matching results
+  - Search is dynamic and works with any filters
+- Add a Question or Answer Forms:
+  - On click a form modal will appear with an overlay
+  - Mandatory inputs are labeled as such and will prevent missing or incomplete submissions
+  - Submitted questions will be stored on external API and appear in either Questions or Answers list
+
+<img src="./client/src/assets/questions-answers.gif" width="800" alt="questions and answers overview gif">
+
+### Ratings & Reviews by Mark P. Vale
+
+### Intro
+
+### Ratings & Reviews Breakdown
+
+![Ratings and Reviews](client/src/assets/Ratings-And-Reviews.png 'ratings and reviews component')
 
 ## Contributors
 
-Thanks goes to these people:
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://github.com/WarrenWongCodes"><img src="https://avatars.githubusercontent.com/u/8570718?v=3?s=100" width="100px;" alt=""/><br /><sub><b>Warren Wong</b></sub></a><br /></td>
