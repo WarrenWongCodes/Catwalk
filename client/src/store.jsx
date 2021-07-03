@@ -1,6 +1,6 @@
-import React, { useState, createContext } from "react";
-import KEYS from "../../config.js";
-import axios from "axios";
+import React, { useState, createContext } from 'react';
+import KEYS from '../../config.js';
+import axios from 'axios';
 
 export const IdContext = React.createContext();
 export const ProductContext = React.createContext();
@@ -13,7 +13,7 @@ export const CartContext = React.createContext();
 export const InteractionsContext = React.createContext();
 
 export const Store = () => {
-  const [id, setId] = useState("11008" || window.location.pathname);
+  const [id, setId] = useState('11008' || window.location.pathname);
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -22,8 +22,8 @@ export const Store = () => {
   const [qa, setQa] = useState([]);
   const [cart, setCart] = useState([]);
   const [interactions, setInteractions] = useState({
-    element: "",
-    widget: "",
+    element: '',
+    widget: '',
     time: new Date().toLocaleString(),
   });
 
@@ -37,24 +37,15 @@ export const Store = () => {
   const getProduct = () => {
     axios
       .get(`/products/${id}`, options)
-      .then((res) => {
-        setProduct(res.data);
-        // console.log("product", product);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((res) => setProduct(res.data))
+      .catch((error) => console.error(error));
   };
 
   const getStyles = () => {
     axios
       .get(`/products/${id}/styles`, options)
-      .then((res) => {
-        setStyles(res.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((res) => setStyles(res.data.results))
+      .catch((error) => console.error(error));
   };
 
   const getRelated = () => {
@@ -70,45 +61,33 @@ export const Store = () => {
             })
           );
       })
-      .catch((error) => {
-        console.error("Error getting Related Products ID: ", error);
-      });
+      .catch((error) =>
+        console.error('Error getting Related Products ID: ', error)
+      );
   };
 
   const getReviews = () => {
     axios
       .get(`/reviews/?product_id=${id}`, options)
-      .then((res) => {
-        // console.log("Styles Data", res);
-        setReviews(res.data.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((res) => setReviews(res.data.results))
+      .catch((error) => console.error(error));
   };
 
   const getReviewsMeta = () => {
     axios
       .get(`/reviews/meta?product_id=${id}`, options)
-      .then((res) => {
-        setMeta(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((res) => setMeta(res.data))
+      .catch((error) => console.error(error));
   };
 
   const getQa = () => {
     axios
       .get(`qa/questions?product_id=${id}&count=30`, options)
       .then((res) => {
-        // console.log("QA after set", res.data.results);
         setQa(res.data.results);
         return res;
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((error) => console.error(error));
   };
   return {
     id,
