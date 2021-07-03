@@ -1,7 +1,7 @@
 <h1 align="center">
   Fusilli - Project CatWalk 😺
   <br><br>
-  <img src="./client/src/assets/questions-answers.gif" alt="site overview gif">
+  <img src="./client/src/assets/site-overview.gif" width="800" alt="site overview gif">
   <br>
 </h1>
 
@@ -11,7 +11,7 @@
 
 ## The problem
 
-Our outdated client-facing retail web-portal has become significantly outdated and is hurting sales. Project Catwalk is a complete redesign of the retail portal designed to address this concern and modernize the site. This document outlines the features to be implemented as part of Project Catwalk.
+An outdated client-facing retail web-portal has become significantly outdated and is hurting sales. Project Catwalk is a complete redesign of the retail portal designed to address this concern and modernize the site. This document outlines the features to be implemented as part of Project Catwalk.
 
 ## This solution
 
@@ -32,7 +32,7 @@ A client facing product detail page with a product overview, related products im
 - E-commerce site built with React hooks, React Context API, Node.js and Express
 - Light and dark theme mode utilizing CSS modules
 - Deploy with AWS EC2 instance (t2.micro), with 0.6 sec First Content Paint
-- 4 distinct components with there own unique challenges
+- 4 distinct components with their own unique challenges
 
 ## Installation
 
@@ -48,23 +48,35 @@ npm run build
 
 Each team member was responsible for a component with its own set of unique business requirements. A brief introduction and component highlights are available below.
 
+---
+
 ### Product Overview by Diego Coronel
 
 ### Intro
 
-The
+Fill out here
 
 ### Product Overview Breakdown
 
+Fill out here
+
 ![Product Overview](client/src/assets/Product-Overview.png 'product overview component')
+
+---
 
 ### Related Products by Tristan Lerisse
 
 ### Intro
 
+Fill out here
+
 ### Related Products Breakdown
 
+Fill out here
+
 ![Related Products](client/src/assets/Related-Products.png 'related products component')
+
+---
 
 ### Questions & Answers by Warren Wong
 
@@ -90,11 +102,17 @@ Per the business requirements this component includes 4 distinct sub components:
 
 <img src="./client/src/assets/questions-answers.gif" width="800" alt="questions and answers overview gif">
 
+---
+
 ### Ratings & Reviews by Mark P. Vale
 
 ### Intro
 
+Fill out here
+
 ### Ratings & Reviews Breakdown
+
+Fill out here
 
 ![Ratings and Reviews](client/src/assets/Ratings-And-Reviews.png 'ratings and reviews component')
 
