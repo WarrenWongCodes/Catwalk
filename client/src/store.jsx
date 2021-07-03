@@ -69,18 +69,14 @@ export const Store = () => {
   const getReviews = () => {
     axios
       .get(`/reviews/?product_id=${id}`, options)
-      .then((res) => {
-        setReviews(res.data.results);
-      })
+      .then((res) => setReviews(res.data.results))
       .catch((error) => console.error(error));
   };
 
   const getReviewsMeta = () => {
     axios
       .get(`/reviews/meta?product_id=${id}`, options)
-      .then((res) => {
-        setMeta(res.data);
-      })
+      .then((res) => setMeta(res.data))
       .catch((error) => console.error(error));
   };
 

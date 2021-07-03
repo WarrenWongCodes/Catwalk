@@ -4,14 +4,15 @@
   --star-background: black;
   --star-border: solid 1px;
 }
+
 .star {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: var(--star-size);
-  /* font-family: Times; */
   line-height: 1;
   background-clip: text;
 }
+
 .star:before {
   content: “★★★★★“;
   letter-spacing: 3px;
@@ -26,6 +27,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .starContainer {
   display: flex;
   align-items: center;

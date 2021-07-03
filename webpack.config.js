@@ -1,10 +1,10 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, "/client/index.jsx"),
+  entry: path.resolve(__dirname, '/client/index.jsx'),
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "public"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
   },
   module: {
     rules: [
@@ -12,9 +12,9 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
@@ -22,7 +22,7 @@ module.exports = {
         test: /\.(jpg|png|svg)$/,
         include: /node_modules/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
             limit: 25000,
           },
@@ -31,27 +31,25 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
-            // importLoaders: 1,
-            // modules: true,
+            loader: 'css-loader',
           },
         ],
         include: /\.module\.css$/,
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
         exclude: /\.module\.css$/,
       },
       {
         test: /\.(png|jpg|gif|woff|svg|eot|ttf|woff2)$/,
-        use: [{ loader: "file-loader" }],
+        use: [{ loader: 'file-loader' }],
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ['*', '.js', '.jsx'],
   },
 };
