@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import axios from "axios";
-import { useInput } from "../utils/formInputHook";
-import KEYS from "../../../../../config";
-import { QaContext } from "../../../store";
-import styles from "../styles/Forms.module.css";
+import React, { useContext } from 'react';
+import axios from 'axios';
+import { useInput } from '../utils/formInputHook';
+import KEYS from '../../../../../config';
+import { QaContext } from '../../../store';
+import styles from '../styles/Forms.module.css';
 
 const { fontSize, spacingStyles } = styles;
 
 export default function AddAnswerForm({ question }) {
   const { product } = useContext(QaContext);
-  const { value: name, bind: bindName, reset: resetName } = useInput("");
-  const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
-  const { value: body, bind: bindBody, reset: resetBody } = useInput("");
-  const { value: photo, bind: bindPhoto, reset: resetPhoto } = useInput("");
+  const { value: name, bind: bindName, reset: resetName } = useInput('');
+  const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
+  const { value: body, bind: bindBody, reset: resetBody } = useInput('');
+  const { value: photo, bind: bindPhoto, reset: resetPhoto } = useInput('');
 
   const addAnswerHandler = (e) => {
     e.preventDefault();
@@ -23,28 +23,26 @@ export default function AddAnswerForm({ question }) {
       photos: [photo],
     });
 
-    // console.log(data.photos);
-
     if (body.length < 1) {
-      alert("You must enter a question");
+      alert('You must enter a question');
       return;
     } else if (name.length < 1) {
-      alert("You must enter a name");
+      alert('You must enter a name');
       return;
-    } else if (!email.includes("@") && !email.includes(".com")) {
-      alert("You must enter a valid email address Ex: joe123@gmail.com");
+    } else if (!email.includes('@') && !email.includes('.com')) {
+      alert('You must enter a valid email address Ex: joe123@gmail.com');
       return;
-    } else if (photo.length > 1 && !photo.includes("http")) {
-      alert("You must enter a valid image link");
+    } else if (photo.length > 1 && !photo.includes('http')) {
+      alert('You must enter a valid image link');
       return;
     }
 
     let config = {
       url: `${KEYS.ENDPOINT}/qa/questions/${question.question_id}/answers`,
-      method: "post",
+      method: 'post',
       headers: {
         Authorization: `${KEYS.API_KEY}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: data,
     };
@@ -55,9 +53,9 @@ export default function AddAnswerForm({ question }) {
         resetBody();
         resetEmail();
         resetPhoto();
-        alert("Successfully added Answer");
+        alert('Successfully added Answer');
       })
-      .catch((err) => console.log(err, "Failed to add answer"));
+      .catch((err) => console.log(err, 'Failed to add answer'));
   };
 
   return (

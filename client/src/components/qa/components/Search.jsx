@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "../styles/Search.module.css";
+import React from 'react';
+import styles from '../styles/Search.module.css';
 
 export default function Search({ search }) {
   return (

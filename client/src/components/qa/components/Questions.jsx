@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import Answer from "./Answer";
-import {
-  helpfulQuestion,
-  reportQuestion,
-  showMoreAnswers,
-} from "../utils/helperFunctions";
-import { IoIosCheckmark } from "react-icons/io";
-import metaDataStyles from "../styles/MetaData.module.css";
+import React, { useState } from 'react';
+import Answer from './Answer';
+import { helpfulQuestion, reportQuestion } from '../utils/helperFunctions';
+import { IoIosCheckmark } from 'react-icons/io';
+import metaDataStyles from '../styles/MetaData.module.css';
 
 const { metaData, spreadContainer, link, seeMoreAnswers, scrollQA } =
   metaDataStyles;
@@ -20,7 +16,7 @@ export default function Questions({ question, answers, setOpen }) {
   let first = [];
   let others = [];
   for (let answer of answers) {
-    if (answer.answerer_name === "Seller") {
+    if (answer.answerer_name === 'Seller') {
       first.push(answer);
     } else {
       others.push(answer);
@@ -92,26 +88,26 @@ export default function Questions({ question, answers, setOpen }) {
             >{`Yes (${question.question_helpfulness})`}</span>
           ) : (
             <span>
-              {" "}
-              <IoIosCheckmark />{" "}
+              {' '}
+              <IoIosCheckmark />{' '}
             </span>
           )}
-          <span>{" | "}</span>
+          <span>{' | '}</span>
           {isShowingReported ? (
             <span onClick={() => reportDisplayHandler()} className={link}>
-              {"Report"}
+              {'Report'}
             </span>
           ) : (
             <span> Reported </span>
           )}
-          <span>{" | "}</span>
+          <span>{' | '}</span>
           <span onClick={() => setOpen(question)} className={link}>
             Add Answer
           </span>
         </span>
       </div>
       <span>A: </span>
-      <span className={`${showScrollView ? scrollQA : ""}`}>
+      <span className={`${showScrollView ? scrollQA : ''}`}>
         {aData.map((a, i) => {
           return <Answer a={a} key={i} />;
         })}

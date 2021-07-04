@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
-import { createPortal } from "react-dom";
-import axios from "axios";
-import KEYS from "../../../../../config";
-import { useInput } from "../utils/formInputHook";
-import { QaContext } from "../../../store";
-import styles from "../styles/Forms.module.css";
+import React, { useContext } from 'react';
+import axios from 'axios';
+import KEYS from '../../../../../config';
+import { useInput } from '../utils/formInputHook';
+import { QaContext } from '../../../store';
+import styles from '../styles/Forms.module.css';
 
 const { fontSize, spacingStyles } = styles;
 
 export default function AddQuestionForm() {
   const { id, product } = useContext(QaContext);
-  const { value: name, bind: bindName, reset: resetName } = useInput("");
-  const { value: email, bind: bindEmail, reset: resetEmail } = useInput("");
-  const { value: body, bind: bindBody, reset: resetBody } = useInput("");
+  const { value: name, bind: bindName, reset: resetName } = useInput('');
+  const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
+  const { value: body, bind: bindBody, reset: resetBody } = useInput('');
 
   const addAQuestionHandler = (e) => {
     e.preventDefault();
@@ -24,22 +23,22 @@ export default function AddQuestionForm() {
     });
 
     if (body.length < 1) {
-      alert("You must enter a question");
+      alert('You must enter a question');
       return;
     } else if (name.length < 1) {
-      alert("You must enter a name");
+      alert('You must enter a name');
       return;
-    } else if (!email.includes("@") && !email.includes(".com")) {
-      alert("You must enter a valid email address Ex: joe123@gmail.com");
+    } else if (!email.includes('@') && !email.includes('.com')) {
+      alert('You must enter a valid email address Ex: joe123@gmail.com');
       return;
     }
 
     let config = {
-      method: "post",
+      method: 'post',
       url: `${KEYS.ENDPOINT}/qa/questions`,
       headers: {
         Authorization: `${KEYS.API_KEY}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       data: data,
     };
@@ -49,7 +48,7 @@ export default function AddQuestionForm() {
         resetName();
         resetBody();
         resetEmail();
-        alert("Successfully added Answer");
+        alert('Successfully added Answer');
       })
       .catch((error) => console.log(error));
   };

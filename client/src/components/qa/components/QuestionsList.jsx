@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { QaContext } from "../../../store.jsx";
-import Questions from "./Questions.jsx";
-import QuestionModal from "./QuestionModal.jsx";
-import AddQuestionForm from "./AddQuestionForm.jsx";
-import AnswerModal from "./AnswerModal.jsx";
-import AddAnswerForm from "../components/AddAnswerForm.jsx";
-import styles from "../styles/FormModals.module.css";
-import QuestionListStyles from "../styles/QuestionsList.module.css";
-import metaDataStyles from "../styles/MetaData.module.css";
+import React, { useContext, useState } from 'react';
+import { QaContext } from '../../../store.jsx';
+import Questions from './Questions.jsx';
+import QuestionModal from './QuestionModal.jsx';
+import AddQuestionForm from './AddQuestionForm.jsx';
+import AnswerModal from './AnswerModal.jsx';
+import AddAnswerForm from '../components/AddAnswerForm.jsx';
+import styles from '../styles/FormModals.module.css';
+import QuestionListStyles from '../styles/QuestionsList.module.css';
+import metaDataStyles from '../styles/MetaData.module.css';
 
 const { buttonSpacing } = QuestionListStyles;
 const { buttonWrapperStyles } = styles;
@@ -16,10 +15,9 @@ const { scrollQA, spreadContainer } = metaDataStyles;
 
 export default function QuestionsList({ query }) {
   const { qa, id } = useContext(QaContext);
-
   const [isOpenQuestion, setIsOpenQuestion] = useState(false);
   const [isOpenAnswer, setIsOpenAnswer] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState("");
+  const [currentQuestion, setCurrentQuestion] = useState('');
   const [numOfQuestions, setQuestionDisplay] = useState(2);
   const [showScrollView, setScrollView] = useState(false);
 
@@ -55,7 +53,7 @@ export default function QuestionsList({ query }) {
 
   return (
     <>
-      <section className={`${showScrollView ? scrollQA : ""}`}>
+      <section className={`${showScrollView ? scrollQA : ''}`}>
         {qaData.map((q, i) => {
           let answers = Object.values(q.answers);
           return (
