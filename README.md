@@ -52,27 +52,11 @@ Each team member was responsible for a component with its own set of unique busi
 
 ### Product Overview by Diego Coronel
 
-### Intro
-
-Fill out here
-
-### Product Overview Breakdown
-
-Fill out here
-
 ![Product Overview](client/src/assets/Product-Overview.png 'product overview component')
 
 ---
 
 ### Related Products by Tristan Lerisse
-
-### Intro
-
-Fill out here
-
-### Related Products Breakdown
-
-Fill out here
 
 ![Related Products](client/src/assets/Related-Products.png 'related products component')
 
@@ -105,14 +89,6 @@ Per the business requirements this component includes 4 distinct sub components:
 ---
 
 ### Ratings & Reviews by Mark P. Vale
-
-### Intro
-
-Fill out here
-
-### Ratings & Reviews Breakdown
-
-Fill out here
 
 ![Ratings and Reviews](client/src/assets/Ratings-And-Reviews.png 'ratings and reviews component')
 
