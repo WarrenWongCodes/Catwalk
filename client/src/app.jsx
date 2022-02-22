@@ -21,6 +21,7 @@ import {
 } from './store.jsx';
 
 export default function App(props) {
+  console.log('working testing')
   const {
     id,
     setId,
